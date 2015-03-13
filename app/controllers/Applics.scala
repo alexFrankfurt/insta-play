@@ -6,4 +6,9 @@ object Applics extends Controller{
   def some = Action {
     Ok("some")
   }
+
+  def another = Action {
+    Ok("another")
+  }
+
 }
