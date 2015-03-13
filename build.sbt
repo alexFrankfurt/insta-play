@@ -10,3 +10,6 @@ libraryDependencies ++= Seq( jdbc , anorm , cache , ws )
 
 unmanagedResourceDirectories in Test <+=  baseDirectory ( _ /"target/web/public/test" )
 
+libraryDependencies ++= Seq(
+  "com.sachinhandiekar" % "jInstagram" % "1.0.10"
+)
