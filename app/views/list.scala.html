@@ -3,6 +3,9 @@
     @for(tagData <- list){
     <li>
         <img src="@tagData.getImages.getLowResolution.getImageUrl" alt=""/>
+        <time>
+            @tagData.getLikes.getCount
+        </time>
     </li>
     }
 </ul>
