@@ -2,7 +2,7 @@ name := "instaplay"
 
 version := "1.0"
 
-lazy val `instaplay` = (project in file(".")).enablePlugins(PlayScala)
+lazy val `instaplay` = (project in file(".")).enablePlugins(PlayScala, PlayJava)
 
 scalaVersion := "2.11.1"
 
