@@ -3,13 +3,10 @@
 # ~~~~
 
 # Home page
-GET        /                    controllers.Application.index
+GET        /                             controllers.Application.index
+#GET		/handleInstagramToken/		controllers.TagSearch.test(code:String)
+GET        /handleInstagramToken/        controllers.Data.test(code:String)
+GET        /handleInstagramToken/post    controllers.Data.post()
 
 # Map static resources from the /public folder to the /assets URL path
-GET        /assets/*file        controllers.Assets.at(path="/public", file)
-
-# Dev helpers
-
-GET        /test                controllers.Application.testableAction
-
-    
+GET        /assets/*file                 controllers.Assets.at(path="/public", file)
