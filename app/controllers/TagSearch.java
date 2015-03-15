@@ -1,6 +1,5 @@
 package controllers;
 
-
 import models.Tag;
 import org.jinstagram.Instagram;
 import org.jinstagram.auth.InstagramAuthService;
@@ -20,11 +19,6 @@ import java.util.ArrayList;
 import java.util.List;
 import static scala.collection.JavaConversions.asScalaBuffer;
 
-
-
-/**
- * Created by Dimin on 11.03.2015.
- */
 public class TagSearch extends Controller {
 
     private static final Token EMPTY_TOKEN = null;

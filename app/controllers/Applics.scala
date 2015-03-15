@@ -10,5 +10,4 @@ object Applics extends Controller{
   def another = Action {
     Ok("another")
   }
-
 }

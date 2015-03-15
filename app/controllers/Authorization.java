@@ -9,9 +9,6 @@ import play.mvc.Result;
 
 import static play.mvc.Results.ok;
 
-/**
- * Created by Dimin on 11.03.2015.
- */
 public class Authorization {
     private static final Token EMPTY_TOKEN = null;
 

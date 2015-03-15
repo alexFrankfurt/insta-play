@@ -20,10 +20,6 @@ import static play.data.Form.form;
 import static play.mvc.Results.ok;
 import static scala.collection.JavaConversions.asScalaBuffer;
 
-
-/**
- * Created by Dimin on 12.03.2015.
- */
 public class Data {
     private static final Token EMPTY_TOKEN = null;
     private static Form<Tag> tagForm = form(Tag.class);
