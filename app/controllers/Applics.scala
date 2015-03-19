@@ -1,13 +1,10 @@
 package controllers
 
 import play.api.mvc.{Action, Controller}
+import constants._
 
 object Applics extends Controller{
   def some = Action {
-    Ok("some")
-  }
-
-  def another = Action {
-    Ok("another")
+    Ok(s"some $RedirectUri <br> $ClientId <br> $ClientSecret")
   }
 }
