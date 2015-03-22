@@ -1,7 +1,7 @@
 package controllers
 
 import play.api.mvc.{Action, Controller}
-import Explorer.instagram
+import OAuther.instagram
 
 object Admin extends Controller{
   def adminPage = Action {
