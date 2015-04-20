@@ -21,7 +21,7 @@ object OAuther extends Controller {
     val verifier = new Verifier(code)
     val accessToken = service.getAccessToken(emptyToken, verifier)
     instagram = new Instagram(accessToken)
-    Ok(views.html.explore())
+    Redirect("/home")
   }
 
   val DBIP = Database.forURL(DBUrl, user = DBUser, driver = DBDriver)

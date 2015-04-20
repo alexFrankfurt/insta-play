@@ -6,7 +6,7 @@ GET        /handleInstagramToken/            controllers.OAuther.createInsta(cod
 GET        /handleInstagramToken/post        controllers.Data.post()
 
 # Exploring jInstagram
-GET        /admin                            controllers.Admin.adminPage
+GET        /home                             controllers.Admin.adminPage
 
 # Map static resources from the /public folder to the /assets URL path
 GET        /assets/*file                     controllers.Assets.at(path="/public", file)

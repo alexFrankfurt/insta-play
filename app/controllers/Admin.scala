@@ -17,6 +17,6 @@ object Admin extends Controller{
     }
     val feed = instagram.getUserLikes(DummyUserId)
     val uList = feed.getUserList.toString
-    Ok(views.html.admin.main(usersR.toString))
+    Ok(views.html.homepage.main(usersR.toString))
   }
 }
