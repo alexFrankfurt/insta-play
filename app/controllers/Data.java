@@ -29,7 +29,7 @@ public class Data {
             .apiSecret("17325634d77c4f9ba380c9c26ce07dc3")
             .callback("http://localhost:8080/handleInstagramToken/")
             .build();
-   static Verifier verifier;
+    static Verifier verifier;
     static String code;
     static Boolean sing=true;
 

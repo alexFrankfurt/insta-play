@@ -8,7 +8,7 @@ import play.api.mvc.{Action, Controller}
 import constants._
 
 object OAuther extends Controller {
-  val servise = new InstagramAuthService()
+  val service = new InstagramAuthService()
                     .apiKey(ClientId)
                     .apiSecret(ClientSecret)
                     .callback(RedirectUri)
@@ -19,7 +19,7 @@ object OAuther extends Controller {
 
   def createInsta(code: String) = Action {
     val verifier = new Verifier(code)
-    val accessToken = servise.getAccessToken(emptyToken, verifier)
+    val accessToken = service.getAccessToken(emptyToken, verifier)
     instagram = new Instagram(accessToken)
     Ok(views.html.explore())
   }
