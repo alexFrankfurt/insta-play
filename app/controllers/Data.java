@@ -30,8 +30,8 @@ public class Data {
             .callback("http://localhost:8080/handleInstagramToken/")
             .build();
    static Verifier verifier;
-    static String code;
-    static Boolean sing=true;
+   static String code;
+   static Boolean sing=true;
 
     public static Result test(String CODE){
         code = CODE;
@@ -57,8 +57,6 @@ public class Data {
             for (MediaFeedData link : mediaFeeds){
                 links.add(link.getImages().getLowResolution().getImageUrl());
             }
-
-            /*return ok(views.html.list.render(asScalaBuffer(mediaFeeds)));*/
             return ok(views.html.list.render(asScalaBuffer(mediaFeeds)));
         } catch (Exception c) {
             c.getStackTrace();

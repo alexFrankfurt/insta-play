@@ -7,6 +7,7 @@ import play.api.mvc.{Action, Controller}
 import constants._
 
 object OAuther extends Controller {
+  val authorizationUrl = AuthorizationUrl
   val servise = new InstagramAuthService()
                     .apiKey(ClientId)
                     .apiSecret(ClientSecret)

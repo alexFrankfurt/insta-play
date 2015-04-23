@@ -3,10 +3,11 @@ GET        /                                 controllers.Application.index
 #GET		/handleInstagramToken/		      controllers.TagSearch.test(code:String)
 #GET        /handleInstagramToken/            controllers.Data.test(code:String)
 GET        /handleInstagramToken/            controllers.OAuther.createInsta(code: String)
-GET        /handleInstagramToken/post        controllers.Data.post()
+POST       /handleInstagramToken/post        controllers.Test.post()
 
 # Exploring jInstagram
 GET        /admin                            controllers.Admin.adminPage
+GET        /getTag                           controllers.Test.get()
 
 # Map static resources from the /public folder to the /assets URL path
 GET        /assets/*file                     controllers.Assets.at(path="/public", file)
