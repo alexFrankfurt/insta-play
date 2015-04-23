@@ -3,12 +3,12 @@ package controllers
 import org.jinstagram.Instagram
 import org.jinstagram.auth.InstagramAuthService
 import org.jinstagram.auth.model.{Verifier, Token}
+import scala.slick.driver.MySQLDriver.simple.Database
 import play.api.mvc.{Action, Controller}
 import constants._
 
 object OAuther extends Controller {
-  val authorizationUrl = AuthorizationUrl
-  val servise = new InstagramAuthService()
+  val service = new InstagramAuthService()
                     .apiKey(ClientId)
                     .apiSecret(ClientSecret)
                     .callback(RedirectUri)
@@ -19,8 +19,10 @@ object OAuther extends Controller {
 
   def createInsta(code: String) = Action {
     val verifier = new Verifier(code)
-    val accessToken = servise.getAccessToken(emptyToken, verifier)
+    val accessToken = service.getAccessToken(emptyToken, verifier)
     instagram = new Instagram(accessToken)
-    Ok(views.html.explore())
+    Redirect("/home")
   }
+
+  val DBIP = Database.forURL(DBUrl, user = DBUser, driver = DBDriver)
 }

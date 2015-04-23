@@ -2,12 +2,13 @@ package controllers;
 
 import play.*;
 import play.mvc.*;
-import static controllers.OAuther.authorizationUrl;
+import static constants.Java.AutorithationUrl;
+import views.html.*;
 
 public class Application extends Controller {
 
     public static Result index() {
-        return ok(views.html.index.render(authorizationUrl()));
+        return ok(views.html.index.render(AutorithationUrl()));
     }
 
 }

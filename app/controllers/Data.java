@@ -23,15 +23,15 @@ import static scala.collection.JavaConversions.asScalaBuffer;
 public class Data {
     private static final Token EMPTY_TOKEN = null;
     private static Form<Tag> tagForm = form(Tag.class);
+    static Verifier verifier;
     static Token accessToken = null;
     static InstagramService service = new InstagramAuthService()
             .apiKey("4b3bf947e41d4bb493635920e5b34a1e")
             .apiSecret("17325634d77c4f9ba380c9c26ce07dc3")
             .callback("http://localhost:8080/handleInstagramToken/")
             .build();
-   static Verifier verifier;
-   static String code;
-   static Boolean sing=true;
+    static String code;
+    static Boolean sing=true;
 
     public static Result test(String CODE){
         code = CODE;
