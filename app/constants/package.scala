@@ -9,7 +9,7 @@ package object constants {
   val ClientId = Conf.get("clientId").toString
   val ClientSecret = Conf.get("clientSecret").toString
 
-  val AuthorizationUrl = Conf.get("autorithationUrl").toString
+  val AuthorizationUrl = Conf.get("authorizationUrl").toString
 
   val DBUrl = Play.configuration.getString("db.default.url").get
   val DBUser = Play.configuration.getString("db.default.user").get
