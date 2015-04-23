@@ -8,7 +8,7 @@ scalaVersion := "2.11.6"
 
 libraryDependencies ++= Seq( jdbc , anorm , cache , ws )
 
-unmanagedResourceDirectories in Test <+=  baseDirectory ( _ /"target/web/public/test" )
+unmanagedResourceDirectories in Test <+=  baseDirectory ( _ /"target/web/public/inputTag" )
 
 libraryDependencies ++= Seq(
   "com.sachinhandiekar" % "jInstagram" % "1.0.10",
