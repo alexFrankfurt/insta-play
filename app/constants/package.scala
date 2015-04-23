@@ -4,11 +4,7 @@ import play.api.Play.current
 
 package object constants {
   val Conf = Play.configuration.getObject("instagram.constants").get.unwrapped()
-<<<<<<< HEAD
   val AuthorizationUrl = Conf.get("authorizationUrl").toString
-=======
-  val AutorithationUrl = Conf.get("autorithationUrl").toString
->>>>>>> db/slick
   val RedirectUri = Conf.get("redirectUri").toString
   val ClientId = Conf.get("clientId").toString
   val ClientSecret = Conf.get("clientSecret").toString

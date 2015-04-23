@@ -1,7 +1,7 @@
 package constants
 
 object Java {
-  val AutorithationUrl = constants.AutorithationUrl
+  val AuthorizationUrl = constants.AuthorizationUrl
   val RedirectUri = constants.RedirectUri
   val ClientId = constants.ClientId
   val ClientSecret = constants.ClientSecret

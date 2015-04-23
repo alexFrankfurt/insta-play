@@ -2,7 +2,6 @@
 GET        /                                           controllers.Application.index
 GET        /handleInstagramToken/inputTag              controllers.TagSearch.inputTag()
 GET        /handleInstagramToken/findPhotoByTag        controllers.TagSearch.findPhotoByTag(tagName: String)
-#GET        /handleInstagramToken/              controllers.Data.inputTag(code:String)
 GET        /handleInstagramToken/                      controllers.OAuther.createInsta(code: String)
 GET        /handleInstagramToken/post                  controllers.Data.post()
 
