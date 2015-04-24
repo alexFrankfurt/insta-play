@@ -7,18 +7,21 @@ import play.libs.Scala;
 import play.mvc.Controller;
 import play.mvc.Result;
 
+import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.List;
 
-import static controllers.OAuther.instagram;
 import static scala.collection.JavaConversions.asScalaBuffer;
 
 
 public class TagSearch extends Controller {
 
-    public static Result findPhotoByTag(String tagName) {
+
+    @Inject OAuther oa;
+
+    public  Result findPhotoByTag(String tagName) {
         try {
-            TagMediaFeed mediaFeed = instagram().getRecentMediaTags(tagName);
+            TagMediaFeed mediaFeed = oa.instagram().getRecentMediaTags(tagName);
 
             List<MediaFeedData> mediaFeeds = mediaFeed.getData();
             List<String> links = new ArrayList<String>();
@@ -32,7 +35,7 @@ public class TagSearch extends Controller {
         return ok(views.html.error.render());
     }
 
-    public static Result inputTag(){
+    public Result inputTag(){
         return ok(views.html.tagForm.render(Scala.Option((Tag) null)));
     }
 
