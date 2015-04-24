@@ -13,3 +13,5 @@ libraryDependencies ++= Seq(
   "com.typesafe.slick" %% "slick" % "2.1.0",
   "mysql" % "mysql-connector-java" % "5.1.6"
 )
+
+unmanagedSourceDirectories in Compile += baseDirectory.value / "web"

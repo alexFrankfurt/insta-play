@@ -1,0 +1,4 @@
+name: "instaplay"
+
+dependencies:
+  polymer: ">=0.16.0 <0.17.0"
