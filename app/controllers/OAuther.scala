@@ -1,13 +1,18 @@
 package controllers
 
+import javax.inject.{Singleton, Inject}
+
 import org.jinstagram.Instagram
 import org.jinstagram.auth.InstagramAuthService
 import org.jinstagram.auth.model.{Verifier, Token}
 import scala.slick.driver.MySQLDriver.simple.Database
 import play.api.mvc.{Action, Controller}
-import constants._
+import constants.App
 
-object OAuther extends Controller {
+@Singleton
+class OAuther @Inject() (consts: App) extends Controller {
+  import consts._
+
   val service = new InstagramAuthService()
                     .apiKey(ClientId)
                     .apiSecret(ClientSecret)
@@ -15,6 +20,7 @@ object OAuther extends Controller {
                     .build()
 
   val emptyToken: Token = null
+
   var instagram = new Instagram(emptyToken)
 
   def createInsta(code: String) = Action {

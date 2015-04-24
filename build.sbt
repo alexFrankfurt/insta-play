@@ -6,7 +6,7 @@ lazy val `instaplay` = (project in file(".")).enablePlugins(PlayScala, PlayJava)
 
 scalaVersion := "2.11.6"
 
-libraryDependencies ++= Seq( jdbc , anorm , cache , ws )
+libraryDependencies ++= Seq( jdbc , cache , ws )
 
 libraryDependencies ++= Seq(
   "com.sachinhandiekar" % "jInstagram" % "1.0.10",

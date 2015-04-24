@@ -1,14 +1,16 @@
 package controllers;
 
+import com.google.inject.Inject;
 import play.mvc.Controller;
 import play.mvc.Result;
-
-import static constants.Java.AuthorizationUrl;
+import constants.App;
 
 public class Application extends Controller {
 
-    public static Result index() {
-        return ok(views.html.index.render(AuthorizationUrl()));
+    @Inject App ca;
+
+    public Result index() {
+        return ok(views.html.index.render(ca.AuthorizationUrl()));
     }
 
 }
