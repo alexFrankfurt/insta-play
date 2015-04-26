@@ -5,11 +5,11 @@ import javax.inject.Inject
 import models.slick.Users
 import play.api.mvc.{Action, Controller}
 import scala.slick.driver.MySQLDriver.simple._
-import constants.App
+import constants.AppConstants
 
 import scala.slick.lifted.TableQuery
 
-class Admin @Inject() (ca: App, oa: OAuther) extends Controller{
+class Admin @Inject() (ca: AppConstants, oa: OAuther) extends Controller{
   import ca._
   import oa._
   def adminPage = Action {

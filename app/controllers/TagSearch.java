@@ -16,7 +16,6 @@ import static scala.collection.JavaConversions.asScalaBuffer;
 
 public class TagSearch extends Controller {
 
-
     @Inject OAuther oa;
 
     public  Result findPhotoByTag(String tagName) {
