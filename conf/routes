@@ -1,5 +1,6 @@
 # Home page
 GET        /                                           @controllers.Application.index
+
 GET        /handleInstagramToken/inputTag              @controllers.TagSearch.inputTag()
 GET        /handleInstagramToken/findPhotoByTag        @controllers.TagSearch.findPhotoByTag(tagName: String)
 GET        /handleInstagramToken/                      @controllers.OAuther.createInsta(code: String)

@@ -19,5 +19,7 @@ class AppConstants {
   val DBUser = Play.configuration.getString("db.default.username").get
   val DBDriver = Play.configuration.getString("db.default.driver").get
 
+  val HomePage = "/home"
+
   val DummyUserId = "5656"
 }
