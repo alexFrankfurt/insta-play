@@ -1,0 +1,8 @@
+@(list:Seq[org.jinstagram.entity.users.feed.UserFeedData])
+<ul>
+    @for(userData <- list){
+        <li>
+            @userData.getFullName
+        </li>
+    }
+</ul>
