@@ -9,4 +9,7 @@ GET        /handleInstagramToken/                      @controllers.OAuther.crea
 GET        /home                                       @controllers.Admin.adminPage
 
 # Map static resources from the /public folder to the /assets URL path
-GET        /assets/*file                               controllers.Assets.at(path="/public", file)
+GET        /assets/*file                               @controllers.Assets.at(path="/public", file)
+
+# Dev
+GET        /test                                       @controllers.Admin.test
