@@ -4,10 +4,9 @@ import javax.inject.Inject
 
 import constants.AppConstants
 import models.slick.Users
-import org.jinstagram.entity.users.feed.MediaFeedData
 import play.api.mvc.{Action, Controller}
 
-import scala.collection.{mutable, JavaConversions}
+import scala.collection.JavaConverters._
 import scala.slick.driver.MySQLDriver.simple._
 import scala.slick.lifted.TableQuery
 
@@ -20,8 +19,9 @@ class Admin @Inject() (ac: AppConstants, oa: OAuther) extends Controller{
       users.run
     }
 
-    val feedTag = JavaConversions.iterableAsScalaIterable(instagram.getRecentMediaTags("like4like", 2).getData)
+    val feedTag = instagram.getRecentMediaTags("like4like", 2).getData.asScala.toList.head
     val feed = instagram.getUserLikes(DummyUserId).toString
+
     Ok(views.html.homepage.main(feedTag.toString))
   }
   
