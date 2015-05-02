@@ -1,7 +1,7 @@
 # Home page
 
 
-GET        /handleInstagramToken/inputTag              controllers.TagSearch.inputTag()
+GET        /handleInstagramToken/inputTag              @controllers.TagSearch.inputTag()
 GET        /handleInstagramToken/findPhotoByTag        @controllers.TagSearch.findPhotoByTag(tagName: String)
 
 GET        /handleInstagramToken/users/relationship    @controllers.Subscribe.subscribeByTag(userId: String)
@@ -14,4 +14,7 @@ GET        /handleInstagramToken/                      @controllers.OAuther.crea
 GET        /home                                       @controllers.Admin.adminPage
 
 # Map static resources from the /public folder to the /assets URL path
-GET        /assets/*file                               controllers.Assets.at(path="/public", file)
+GET        /assets/*file                               @controllers.Assets.at(path="/public", file)
+
+# Dev
+GET        /test                                       @controllers.Admin.test

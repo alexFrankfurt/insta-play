@@ -1,7 +1,19 @@
-@(AutorithationUrl: String)
+@(authorizationUrlScopes: String*)
 
 @main("Welcom to insta-bot"){
     <p>
-        <a href="@AutorithationUrl">Go</a>
+        <a href="@{authorizationUrlScopes.head + {
+                val scopes = authorizationUrlScopes.tail
+                val res = scopes.isEmpty match {
+                    case true => ""
+                    case false =>
+                        val rScopes = new StringBuilder(s"&scope=${scopes.head}")
+                        scopes.tail foreach { sc =>
+                            rScopes append s"+$sc"
+                        }
+                        rScopes.toString()
+                }
+                res
+        }}">Go</a>
     </p>
 }
