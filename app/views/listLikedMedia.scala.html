@@ -1,0 +1,9 @@
+@(linksMedia:Seq[String])
+<ul>
+
+    @for(link <- linksMedia){
+        <li>
+            <a href="@link">@link</a>
+        </li>
+    }
+</ul>

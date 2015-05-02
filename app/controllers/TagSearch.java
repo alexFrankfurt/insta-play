@@ -17,7 +17,7 @@ import static scala.collection.JavaConversions.asScalaBuffer;
 
 public class TagSearch extends Controller {
 
-    public static Result inputTag(){
+    public Result inputTag(){
         return ok(views.html.tagForm.render(Scala.Option((Tag) null)));
     }
 

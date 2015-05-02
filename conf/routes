@@ -1,20 +1,24 @@
 # Home page
 
 
-GET        /handleInstagramToken/inputTag              @controllers.TagSearch.inputTag()
-GET        /handleInstagramToken/findPhotoByTag        @controllers.TagSearch.findPhotoByTag(tagName: String)
+GET        /handleInstagramToken/inputTag                  @controllers.TagSearch.inputTag()
+GET        /handleInstagramToken/findPhotoByTag            @controllers.TagSearch.findPhotoByTag(tagName: String)
 
-GET        /handleInstagramToken/users/relationship    @controllers.Subscribe.subscribeByTag(userId: String)
+#Relationship
+GET        /handleInstagramToken/users/relationship        @controllers.Subscribe.subscribeByTag(userId: String)
+
+#Likes
+GET        /handleInstagramToken/media/like                @controllers.LikeMedia.likeByTag(tagName: String)
 
 
-GET        /                                           @controllers.Application.index
-GET        /handleInstagramToken/                      @controllers.OAuther.createInsta(code: String)
+GET        /                                               @controllers.Application.index
+GET        /handleInstagramToken/                          @controllers.OAuther.createInsta(code: String)
 
 # Exploring jInstagram
-GET        /home                                       @controllers.Admin.adminPage
+GET        /home                                           @controllers.Admin.adminPage
 
 # Map static resources from the /public folder to the /assets URL path
-GET        /assets/*file                               @controllers.Assets.at(path="/public", file)
+GET        /assets/*file                                   @controllers.Assets.at(path="/public", file)
 
 # Dev
-GET        /test                                       @controllers.Admin.test
+GET        /test                                           @controllers.Admin.test
