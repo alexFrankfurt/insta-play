@@ -2,13 +2,17 @@ package controllers;
 
 import play.mvc.Controller;
 import play.mvc.Result;
+import constants.AppConstants;
 
-import static constants.Java.AuthorizationUrl;
+import javax.inject.Inject;
 
 public class Application extends Controller {
 
-    public static Result index() {
-        return ok(views.html.index.render(AuthorizationUrl()));
+    @Inject
+    AppConstants ca;
+
+    public Result index() {
+        return ok(views.html.index.render(ca.AuthorizationUrl()));
     }
 
 }

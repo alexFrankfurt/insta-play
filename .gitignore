@@ -14,3 +14,17 @@ dist
 /RUNNING_PID
 /.settings
 *.sublime*
+
+# Dart
+.buildlog
+.pub/
+build/
+packages
+
+# Files created by dart2js.
+*.dart.js
+*.js_
+*.js.deps
+*.js.map
+
+pubspec.lock

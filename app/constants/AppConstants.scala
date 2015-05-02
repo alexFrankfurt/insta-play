@@ -1,9 +1,13 @@
+package constants
+
+import javax.inject.Singleton
 
 import play.api.Play
 import play.api.Play.current
 
-package object constants {
-  val Conf = Play.configuration.getObject("instagram.constants").get.unwrapped()
+@Singleton
+class AppConstants {
+  val Conf = Play.configuration.getObject("constants.app").get.unwrapped()
 
   val RedirectUri = Conf.get("redirectUri").toString
   val ClientId = Conf.get("clientId").toString
@@ -12,7 +16,7 @@ package object constants {
   val AuthorizationUrl = Conf.get("authorizationUrl").toString
 
   val DBUrl = Play.configuration.getString("db.default.url").get
-  val DBUser = Play.configuration.getString("db.default.user").get
+  val DBUser = Play.configuration.getString("db.default.username").get
   val DBDriver = Play.configuration.getString("db.default.driver").get
 
   val DummyUserId = "5656"

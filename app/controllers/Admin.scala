@@ -1,15 +1,17 @@
 package controllers
 
+import javax.inject.Inject
+
 import models.slick.Users
 import play.api.mvc.{Action, Controller}
 import scala.slick.driver.MySQLDriver.simple._
-import constants.DummyUserId
-import OAuther.instagram
-import OAuther.DBIP
+import constants.AppConstants
 
 import scala.slick.lifted.TableQuery
 
-object Admin extends Controller{
+class Admin @Inject() (ca: AppConstants, oa: OAuther) extends Controller{
+  import ca._
+  import oa._
   def adminPage = Action {
     val users = TableQuery[Users]
     val usersR = DBIP withSession { implicit session =>
