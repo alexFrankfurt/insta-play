@@ -8,7 +8,7 @@ GET        /handleInstagramToken/findPhotoByTag            @controllers.TagSearc
 GET        /handleInstagramToken/users/relationship        @controllers.Subscribe.subscribeByTag(userId: String)
 
 #Likes
-GET        /handleInstagramToken/media/like                @controllers.LikeMedia.likeByTag(tagName: String)
+POST        /handleInstagramToken/media/like                @controllers.LikeMedia.likeByTag
 
 
 GET        /                                               @controllers.Application.index

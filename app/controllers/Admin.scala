@@ -19,7 +19,7 @@ class Admin @Inject() (ac: AppConstants, oa: OAuther) extends Controller{
       users.run
     }
 
-    val feedTag = instagram.getRecentMediaTags("like4like", 2).getData.asScala.toList.head
+    val feedTag = instagram.getRecentMediaTags("medvedev", 2).getData.asScala.toList.head
     val feed = instagram.getUserLikes(DummyUserId).toString
 
     Ok(views.html.homepage.main(feedTag.toString))
