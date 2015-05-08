@@ -5,6 +5,7 @@ import javax.inject.Inject
 import constants.AppConstants
 import models.slick.Users
 import play.api.mvc.{Action, Controller}
+import play.twirl.api.Html
 
 import scala.collection.JavaConverters._
 import scala.slick.driver.MySQLDriver.simple._
@@ -26,6 +27,7 @@ class Admin @Inject() (ac: AppConstants, oa: OAuther) extends Controller{
   }
   
   def test = Action {
-    Ok(views.html.index(AuthorizationUrl, ScopeLikes))
+
+    Ok(Html("""<a href="https://api.instagram.com/oauth/authorize/?client_id=41631eeee0f648e689d6bafbf8b2413e&redirect_uri=http://localhost:2904/handleInstagramToken&response_type=code&scope=likes">click</a>"""))
   }
 }

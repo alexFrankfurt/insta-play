@@ -17,6 +17,7 @@ class OAuther @Inject() (consts: AppConstants) extends Controller {
                     .apiKey(ClientId)
                     .apiSecret(ClientSecret)
                     .callback(RedirectUri)
+                    .scope(Scopes.Likes)
                     .build()
 
   val emptyToken: Token = null
@@ -25,7 +26,7 @@ class OAuther @Inject() (consts: AppConstants) extends Controller {
 
   def createInsta(code: String) = Action {
     val verifier = new Verifier(code)
-    val accessToken = service.getAccessToken(emptyToken, verifier)
+    val accessToken = service.getAccessToken(new Token(code, ClientSecret), verifier)
     instagram = new Instagram(accessToken)
     Redirect(HomePage)
   }
