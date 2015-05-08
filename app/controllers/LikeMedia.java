@@ -30,7 +30,7 @@ public class LikeMedia {
             for (MediaFeedData mediaFeedData : mediaFeeds){
                 mediaIds.add(mediaFeedData.getId());
                 links.add(mediaFeedData.getLink());
-                like.instagram().setUserLike(mediaIds.get(mediaIds.size() - 1));
+//                like.instagram().setUserLike(mediaIds.get(mediaIds.size() - 1));
             }
 
             return ok(views.html.listLikedMedia.render(asScalaBuffer(links)));

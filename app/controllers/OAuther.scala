@@ -21,9 +21,12 @@ class OAuther @Inject() (consts: AppConstants) extends Controller {
                     .apiKey(ClientId)
                     .apiSecret(ClientSecret)
                     .callback(RedirectUri)
+                    .scope("likes")
                     .build()
 
   val emptyToken: Token = null
+
+  //val authorizationUrl = service.getAuthorizationUrl(emptyToken)
 
   var instagram = new Instagram(emptyToken)
 
@@ -31,16 +34,7 @@ class OAuther @Inject() (consts: AppConstants) extends Controller {
     val verifier = new Verifier(code)
     val accessToken = service.getAccessToken(emptyToken, verifier)
     instagram = new Instagram(accessToken)
-    val tagName = "medvedev"
-    val mediaFeed:TagMediaFeed = instagram.getRecentMediaTags(tagName)
-
-    val mediaFeeds:Seq[MediaFeedData] = asScalaBuffer(mediaFeed.getData)
-
-    for (item <- mediaFeeds){
-      instagram.setUserLike(item.getId())
-      println(item.getId + item.getLink)
-    }
-
+    //instagram = new Instagram(accessToken.getToken, ClientSecret, "127.0.0.1");
     Redirect(HomePage)
   }
 
