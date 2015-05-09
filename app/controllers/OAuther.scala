@@ -35,7 +35,9 @@ class OAuther @Inject() (consts: AppConstants) extends Controller {
     val accessToken = service.getAccessToken(emptyToken, verifier)
     instagram = new Instagram(accessToken)
     //instagram = new Instagram(accessToken.getToken, ClientSecret, "127.0.0.1");
-    Redirect(HomePage)
+//    Redirect(HomePage)
+//    Redirect(ProfilePage)
+    Redirect(GalaryPage)
   }
 
   val DBIP = Database.forURL(DBUrl, user = DBUser, driver = DBDriver)

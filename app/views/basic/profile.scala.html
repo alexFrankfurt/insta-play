@@ -1,0 +1,15 @@
+@(userData:org.jinstagram.entity.users.basicinfo.UserInfoData)
+<ul>
+  <li>UserId: @userData.getId</li>
+    @if(userData.getFirst_name == null){
+      <li>Full Name: @userData.getFullName</li>
+    }else{
+      <li>Full Name: @userData.getFirst_name</li>
+    }
+  @if(userData.getLast_name != null) {
+    <li>Last Name: @userData.getLast_name</li>
+  }
+  <li><img src="@userData.getProfile_picture" alt="profile_pic"/></li>
+  <li>Follows: @userData.getCounts.getFollows</li>
+  <li>Followed by: @userData.getCounts.getFollwed_by</li>
+</ul>

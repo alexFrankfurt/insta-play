@@ -26,6 +26,8 @@ class AppConstants {
   val ScopeRelationships = Scope.getString("relationships").get
 
   val HomePage = "/home"
+  val ProfilePage = "/profile"
+  val GalaryPage = "/galary"
 
   val DummyUserId = "5656"
 }

@@ -14,15 +14,16 @@ class Admin @Inject() (ac: AppConstants, oa: OAuther) extends Controller{
   import ac._
   import oa._
   def adminPage = Action {
-    val users = TableQuery[Users]
-    val usersR = DBIP withSession { implicit session =>
-      users.run
-    }
-
-    val feedTag = instagram.getRecentMediaTags("medvedev", 2).getData.asScala.toList.head
-    val feed = instagram.getUserLikes(DummyUserId).toString
-
-    Ok(views.html.homepage.main(feedTag.toString))
+//    val users = TableQuery[Users]
+//    val usersR = DBIP withSession { implicit session =>
+//      users.run
+//    }
+//
+//    val feedTag = instagram.getRecentMediaTags("medvedev", 2).getData.asScala.toList.head
+//    val feed = instagram.getUserLikes(DummyUserId).toString
+//
+//    Ok(views.html.homepage.main(feedTag.toString))
+    Ok(views.html.homepage.main(""))
   }
   
   def test = Action {
