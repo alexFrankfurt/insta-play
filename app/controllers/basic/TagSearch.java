@@ -3,6 +3,7 @@ package controllers.basic;
 import controllers.OAuther;
 import models.Tag;
 import org.jinstagram.entity.tags.TagMediaFeed;
+import org.jinstagram.entity.users.feed.MediaFeed;
 import org.jinstagram.entity.users.feed.MediaFeedData;
 import org.jinstagram.exceptions.InstagramException;
 import play.libs.Scala;
@@ -27,10 +28,17 @@ public class TagSearch extends Controller {
 
     public  Result searchPhotoByTag(String tagName) {
         try {
-            TagMediaFeed mediaFeed = search.instagram().getRecentMediaTags(tagName);
+            TagMediaFeed tagMediaFeed = search.instagram().getRecentMediaTags(tagName);
 
-            List<MediaFeedData> mediaFeeds = mediaFeed.getData();
-            return ok(views.html.basic.galary.render("Search",asScalaBuffer(mediaFeeds)));
+            List<MediaFeedData> mediaList = tagMediaFeed.getData();
+            MediaFeed recentMediaNextPage = search.instagram().getRecentMediaNextPage(tagMediaFeed.getPagination());
+            int counter = 0;
+            while (recentMediaNextPage.getPagination() != null && counter < 4) {
+                mediaList.addAll(recentMediaNextPage.getData());
+                recentMediaNextPage = search.instagram().getRecentMediaNextPage(recentMediaNextPage.getPagination());
+                counter++;
+            }
+            return ok(views.html.basic.galary.render("Search",asScalaBuffer(mediaList)));
 //            List<String> links = new ArrayList<String>();
 //            for (MediaFeedData link : mediaFeeds){
 //                links.add(link.getImages().getLowResolution().getImageUrl());
