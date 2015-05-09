@@ -28,6 +28,8 @@ class AppConstants {
   val HomePage = "/home"
   val ProfilePage = "/profile"
   val GalaryPage = "/galary"
+  val PopularPage = "/popular"
+  val SearchPhotoByTag = "/inputTag"
 
   val DummyUserId = "5656"
 }

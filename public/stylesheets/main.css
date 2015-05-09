@@ -2,3 +2,10 @@ h3 {
     font-family: "Times New Roman";
     color: midnightblue;
 }
+ul{
+    float: left;
+}
+li{
+    display: block;
+    float: left;
+}

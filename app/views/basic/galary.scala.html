@@ -1,11 +1,11 @@
-@(mediaFeeds: Seq[org.jinstagram.entity.users.feed.MediaFeedData])
+@(name:String,mediaFeeds: Seq[org.jinstagram.entity.users.feed.MediaFeedData])
 <ul>
-
+    <h3>@name</h3>
+    <h3>Media count: @mediaFeeds.size</h3>
     @for(feed <- mediaFeeds){
 
         <li>
             <img src="@feed.getImages.getThumbnail.getImageUrl" alt="@feed.getId"/>
-
         </li>
     }
 </ul>

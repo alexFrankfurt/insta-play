@@ -18,10 +18,12 @@ public class Galary {
 
     public Result galary(){
         try{
+
             MediaFeed mediaFeed = galary.instagram().getUserFeeds(null, null, 33);
             List<MediaFeedData> mediaFeedList = mediaFeed.getData();
-            System.out.println(mediaFeedList.size() + "= size");
-            return ok(views.html.basic.galary.render(asScalaBuffer(mediaFeedList)));
+            System.out.println(mediaFeedList.size() + " = size");
+            return ok(views.html.basic.galary.render("Galary",asScalaBuffer(mediaFeedList)));
+
         }catch (InstagramException c){
             System.out.println("galary " + c);
         }
