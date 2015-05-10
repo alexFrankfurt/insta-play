@@ -27,7 +27,7 @@ public class Gallery {
         }catch (InstagramException c){
             System.out.println("gallery " + c);
         }
-        return ok(views.html.error.apply());
+        return ok(views.html.basic.error.apply());
 
     }
 }

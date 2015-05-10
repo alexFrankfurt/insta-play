@@ -20,11 +20,11 @@ public class Subscribe {
             RelationshipFeed feed = sub.instagram().setUserRelationship(userId, Relationship.FOLLOW);
             System.out.println("Meta Code : " + feed.getMeta().getCode());
             System.out.println("Incoming_Status : " + feed.getData().getIncomingStatus());
-            return ok(views.html.ok.render());
+            return ok(views.html.basic.ok.render());
         }catch (InstagramException c) {
             System.out.println("follow " + c.getMessage());
         }
-        return ok(views.html.error.render());
+        return ok(views.html.basic.error.render());
     }
 
 }

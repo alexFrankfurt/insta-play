@@ -24,7 +24,7 @@ public class PopularMedia {
         }catch (InstagramException c){
             System.out.println("popular " + c);
         }
-        return ok(views.html.error.apply());
+        return ok(views.html.basic.error.apply());
     }
 
 }
