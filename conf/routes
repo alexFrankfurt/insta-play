@@ -1,24 +1,28 @@
 # Home page
 
+#Basic
+GET         /profile                                @controllers.basic.Profile.profile()
+GET         /galary                                 @controllers.basic.Galary.galary()
+GET         /popular                                @controllers.basic.PopularMedia.getPopular()
+GET         /inputTag                               @controllers.basic.TagSearch.inputTag()
+GET         /searchPhotoByTag                       @controllers.basic.TagSearch.searchPhotoByTag(tagName: String)
 
-GET        /handleInstagramToken/inputTag                  @controllers.TagSearch.inputTag()
-GET        /handleInstagramToken/findPhotoByTag            @controllers.TagSearch.findPhotoByTag(tagName: String)
 
 #Relationship
 #GET        /handleInstagramToken/users/relationship        @controllers.Subscribe.subscribeByTag(userId: String)
 
 #Likes
-POST        /handleInstagramToken/media/like                @controllers.LikeMedia.likeByTag
+POST        /handleInstagramToken/media/like        @controllers.LikeMedia.likeByTag
 
 
-GET        /                                               @controllers.Application.index
-GET        /handleInstagramToken/                          @controllers.OAuther.createInsta(code: String)
+GET         /                                       @controllers.Application.index
+GET         /handleInstagramToken/                  @controllers.OAuther.createInsta(code: String)
 
 # Exploring jInstagram
-GET        /home                                           @controllers.Admin.adminPage
+GET         /home                                   @controllers.Admin.adminPage
 
 # Map static resources from the /public folder to the /assets URL path
-GET        /assets/*file                                   @controllers.Assets.at(path="/public", file)
+GET         /assets/*file                           @controllers.Assets.at(path="/public", file)
 
 # Dev
-GET        /test                                           @controllers.Admin.test
+GET         /test                                   @controllers.Admin.test

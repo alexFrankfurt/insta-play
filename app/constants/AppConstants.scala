@@ -33,6 +33,11 @@ class AppConstants {
 
   val IndexPage = views.html.index
 
+  val ProfilePage = "/profile"
+  val GalaryPage = "/galary"
+  val PopularPage = "/popular"
+  val SearchPhotoByTag = "/inputTag"
+
   val DummyUserId = "5656"
 
   var token: Token = _

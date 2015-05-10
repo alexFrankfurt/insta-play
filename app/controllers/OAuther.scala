@@ -7,7 +7,7 @@ import org.jinstagram.auth.InstagramAuthService
 import org.jinstagram.auth.model.{Verifier, Token}
 import org.jinstagram.entity.tags.TagMediaFeed
 import org.jinstagram.entity.users.feed.MediaFeedData
-import scala.slick.driver.MySQLDriver.simple.Database
+import slick.driver.MySQLDriver.api.Database
 import play.api.mvc.{Action, Controller}
 import constants.AppConstants
 
@@ -21,19 +21,27 @@ class OAuther @Inject() (consts: AppConstants) extends Controller {
                     .apiKey(ClientId)
                     .apiSecret(ClientSecret)
                     .callback(RedirectUri)
-                    .scope(Scopes.Likes)
+                    .scope("likes")
                     .build()
 
   val emptyToken: Token = null
+
+  //val authorizationUrl = service.getAuthorizationUrl(emptyToken)
 
   var instagram = new Instagram(emptyToken)
 
   def createInsta(code: String) = Action {
     val verifier = new Verifier(code)
-    val accessToken = service.getAccessToken(new Token(code, ClientSecret), verifier)
+    val accessToken = service.getAccessToken(emptyToken, verifier)
     instagram = new Instagram(accessToken)
-    Redirect(HomePath)
+    //instagram = new Instagram(accessToken.getToken, ClientSecret, "127.0.0.1");
+//    Redirect(HomePage)
+//    Redirect(ProfilePage)
+//    Redirect(GalaryPage)
+//    Redirect(PopularPage)
+    Redirect(SearchPhotoByTag)
   }
 
   val DBIP = Database.forURL(DBUrl, user = DBUser, driver = DBDriver)
 }
+
