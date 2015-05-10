@@ -7,7 +7,7 @@ import org.jinstagram.auth.InstagramAuthService
 import org.jinstagram.auth.model.{Verifier, Token}
 import org.jinstagram.entity.tags.TagMediaFeed
 import org.jinstagram.entity.users.feed.MediaFeedData
-import scala.slick.driver.MySQLDriver.simple.Database
+import slick.driver.MySQLDriver.api.Database
 import play.api.mvc.{Action, Controller}
 import constants.AppConstants
 
@@ -44,3 +44,4 @@ class OAuther @Inject() (consts: AppConstants) extends Controller {
 
   val DBIP = Database.forURL(DBUrl, user = DBUser, driver = DBDriver)
 }
+

@@ -1,6 +1,6 @@
 package models.slick
 
-import scala.slick.driver.MySQLDriver.simple._
+import slick.driver.MySQLDriver.api._
 
 class Users(tag: Tag) extends Table[(String, String, String, Boolean)](tag, "Users"){
   def login = column[String]("login", O.PrimaryKey)

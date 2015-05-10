@@ -7,9 +7,10 @@ import play.api.mvc.{Action, Controller}
 
 
 class Application @Inject() (ac: AppConstants) extends Controller{
-  import ac.{AuthorizationUrl, ScopeLikes}
+  import ac.{AuthorizationUrl, Scopes, IndexPage}
+  import Scopes._
 
   def index = Action {
-    Ok(views.html.index(AuthorizationUrl, ScopeLikes))
+    Ok(IndexPage(AuthorizationUrl, Likes, Comments, Relationships))
   }
 }
