@@ -37,6 +37,6 @@ public class LikeMedia {
         } catch (InstagramException c) {
             System.out.println("find " + c.getMessage());
         }
-        return ok(views.html.error.render());
+        return ok(views.html.basic.error.render());
     }
 }

@@ -39,16 +39,10 @@ public class TagSearch extends Controller {
                 counter++;
             }
             return ok(views.html.basic.galary.render("Search",asScalaBuffer(mediaList)));
-//            List<String> links = new ArrayList<String>();
-//            for (MediaFeedData link : mediaFeeds){
-//                links.add(link.getImages().getLowResolution().getImageUrl());
-//            }
-//
-//            return ok(views.html.list.render(asScalaBuffer(mediaFeeds)));
         } catch (InstagramException c) {
             System.out.println("find " + c.getMessage());
         }
-        return ok(views.html.error.render());
+        return ok(views.html.basic.error.render());
     }
 
 }

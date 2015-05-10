@@ -24,6 +24,6 @@ public class Profile {
         } catch (InstagramException c){
             System.out.println("userInfo" + c);
         }
-        return ok(views.html.error.render());
+        return ok(views.html.basic.error.render());
     }
 }
