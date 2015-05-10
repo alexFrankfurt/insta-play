@@ -28,7 +28,10 @@ class AppConstants {
     val Relationships = Scope.getString("relationships").get
   }
 
-  val HomePage = "/home"
+  val HomePage = views.html.homepage.main
+  val HomePath = "/home"
+
+  val IndexPage = views.html.index
 
   val DummyUserId = "5656"
 

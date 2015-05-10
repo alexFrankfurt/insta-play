@@ -14,7 +14,7 @@ public class Subscribe {
     @Inject
     OAuther sub;
 
-    public Result subscribeByTag(String userId){
+    public Result followByTag(String userId){
         try{
             System.out.println(userId);
             RelationshipFeed feed = sub.instagram().setUserRelationship(userId, Relationship.FOLLOW);

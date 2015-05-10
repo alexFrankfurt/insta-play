@@ -17,7 +17,8 @@ public class LikeMedia {
     @Inject
     OAuther like;
 
-    public Result likeByTag(String tagName){
+    public Result likeByTag(){
+        String tagName = "medvedev";
         try {
             TagMediaFeed mediaFeed = like.instagram().getRecentMediaTags(tagName);
 
@@ -26,10 +27,10 @@ public class LikeMedia {
             List<String> mediaIds = new ArrayList<>();
             List<String> links = new ArrayList<>();
 
-            for (MediaFeedData mediaId : mediaFeeds){
-                mediaIds.add(mediaId.getId());
-                links.add(mediaId.getLink());
-                LikesFeed feed = like.instagram().setUserLike(mediaIds.get(mediaIds.size() - 1));
+            for (MediaFeedData mediaFeedData : mediaFeeds){
+                mediaIds.add(mediaFeedData.getId());
+                links.add(mediaFeedData.getLink());
+//                like.instagram().setUserLike(mediaIds.get(mediaIds.size() - 1));
             }
 
             return ok(views.html.listLikedMedia.render(asScalaBuffer(links)));

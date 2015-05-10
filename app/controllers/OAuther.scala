@@ -5,9 +5,13 @@ import javax.inject.{Singleton, Inject}
 import org.jinstagram.Instagram
 import org.jinstagram.auth.InstagramAuthService
 import org.jinstagram.auth.model.{Verifier, Token}
+import org.jinstagram.entity.tags.TagMediaFeed
+import org.jinstagram.entity.users.feed.MediaFeedData
 import scala.slick.driver.MySQLDriver.simple.Database
 import play.api.mvc.{Action, Controller}
 import constants.AppConstants
+
+import scala.collection.JavaConversions.asScalaBuffer
 
 @Singleton
 class OAuther @Inject() (consts: AppConstants) extends Controller {
@@ -28,7 +32,7 @@ class OAuther @Inject() (consts: AppConstants) extends Controller {
     val verifier = new Verifier(code)
     val accessToken = service.getAccessToken(new Token(code, ClientSecret), verifier)
     instagram = new Instagram(accessToken)
-    Redirect(HomePage)
+    Redirect(HomePath)
   }
 
   val DBIP = Database.forURL(DBUrl, user = DBUser, driver = DBDriver)
