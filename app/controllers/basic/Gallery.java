@@ -12,21 +12,20 @@ import java.util.List;
 import static play.mvc.Results.ok;
 import static scala.collection.JavaConversions.asScalaBuffer;
 
-public class Galary {
-
+public class Gallery {
     @Inject
-    OAuther galary;
+    OAuther gallery;
 
-    public Result galary(){
+    public Result gallery(){
         try{
 
-            MediaFeed mediaFeed = galary.instagram().getUserFeeds(null, null, 33);
+            MediaFeed mediaFeed = gallery.instagram().getUserFeeds(null, null, 33);
             List<MediaFeedData> mediaFeedList = mediaFeed.getData();
             System.out.println(mediaFeedList.size() + " = size");
-            return ok(views.html.basic.galary.render("Galary",asScalaBuffer(mediaFeedList)));
+            return ok(views.html.basic.galary.render("Gallery",asScalaBuffer(mediaFeedList)));
 
         }catch (InstagramException c){
-            System.out.println("galary " + c);
+            System.out.println("gallery " + c);
         }
         return ok(views.html.basic.error.apply());
 

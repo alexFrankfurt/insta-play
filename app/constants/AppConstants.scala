@@ -34,7 +34,7 @@ class AppConstants {
   val IndexPage = views.html.index
 
   val ProfilePage = "/profile"
-  val GalaryPage = "/galary"
+  val GalleryPage = "/gallery"
   val PopularPage = "/popular"
   val SearchPhotoByTag = "/inputTag"
 
