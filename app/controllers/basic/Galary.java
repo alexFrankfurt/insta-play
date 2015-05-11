@@ -13,6 +13,7 @@ import static play.mvc.Results.ok;
 import static scala.collection.JavaConversions.asScalaBuffer;
 
 public class Galary {
+
     @Inject
     OAuther galary;
 
