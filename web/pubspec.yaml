@@ -1,4 +1,4 @@
 name: "instaplay"
 
 dependencies:
-  polymer: ">=0.16.0 <0.17.0"
+  google_maps: ">=2.0.0 <3.0.0"

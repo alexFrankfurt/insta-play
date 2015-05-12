@@ -28,14 +28,19 @@ class AppConstants {
     val Relationships = Scope.getString("relationships").get
   }
 
+  val IndexPage = views.html.index
+
   val HomePage = views.html.homepage.main
   val HomePath = "/home"
 
-  val IndexPage = views.html.index
+  val MapPage = views.html.map.show
 
-  val ProfilePage = "/profile"
-  val GalleryPage = "/gallery"
-  val PopularPage = "/popular"
+  val ProfilePath = "/profile"
+
+  val GalleryPage = views.html.basic.gallery
+  val GalleryPath = "/gallery"
+
+  val PopularPath = "/popular"
   val SearchPhotoByTag = "/inputTag"
 
   val DummyUserId = "5656"

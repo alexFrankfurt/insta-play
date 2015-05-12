@@ -6,7 +6,7 @@ GET         /gallery                                @controllers.basic.Gallery.g
 GET         /popular                                @controllers.basic.PopularMedia.getPopular()
 GET         /inputTag                               @controllers.basic.TagSearch.inputTag()
 GET         /searchPhotoByTag                       @controllers.basic.TagSearch.searchPhotoByTag(tagName: String)
-
+GET         /loadphotos                             @controllers.Gallery.load
 
 #Relationship
 #GET        /handleInstagramToken/users/relationship        @controllers.Subscribe.subscribeByTag(userId: String)
@@ -26,3 +26,7 @@ GET         /assets/*file                           @controllers.Assets.at(path=
 
 # Dev
 GET         /test                                   @controllers.Admin.test
+
+# Google Maps
+GET         /map                                    @controllers.map.GoogleMaps.map
+GET         /map/dart                               @controllers.map.GoogleMaps.mapDart

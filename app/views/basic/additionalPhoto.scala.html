@@ -1,0 +1,7 @@
+@(photos: Seq[org.jinstagram.entity.users.feed.MediaFeedData])
+
+@for(photo <- photos){
+    <li>
+        <img src="@photo.getImages.getThumbnail.getImageUrl" alt="@photo.getId"/>
+    </li>
+}

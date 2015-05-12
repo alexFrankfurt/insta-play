@@ -38,7 +38,7 @@ public class TagSearch extends Controller {
                 recentMediaNextPage = search.instagram().getRecentMediaNextPage(recentMediaNextPage.getPagination());
                 counter++;
             }
-            return ok(views.html.basic.galary.render("Search",asScalaBuffer(mediaList)));
+            return ok(views.html.basic.gallery.render("Search",asScalaBuffer(mediaList)));
         } catch (InstagramException c) {
             System.out.println("find " + c.getMessage());
         }
