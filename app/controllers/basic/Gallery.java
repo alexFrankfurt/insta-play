@@ -1,5 +1,6 @@
 package controllers.basic;
 
+import constants.AppConstants;
 import controllers.OAuther;
 import org.jinstagram.entity.users.feed.MediaFeed;
 import org.jinstagram.entity.users.feed.MediaFeedData;
@@ -16,13 +17,16 @@ public class Gallery {
     @Inject
     OAuther gallery;
 
+    @Inject
+    AppConstants ac;
+
     public Result gallery(){
         try{
 
             MediaFeed mediaFeed = gallery.instagram().getUserFeeds(null, null, 33);
             List<MediaFeedData> mediaFeedList = mediaFeed.getData();
             System.out.println(mediaFeedList.size() + " = size");
-            return ok(views.html.basic.galary.render("Gallery",asScalaBuffer(mediaFeedList)));
+            return ok(ac.GalleryPage().render("Gallery", asScalaBuffer(mediaFeedList)));
 
         }catch (InstagramException c){
             System.out.println("gallery " + c);

@@ -11,5 +11,6 @@ libraryDependencies ++= Seq( jdbc , cache , ws )
 libraryDependencies ++= Seq(
   "com.sachinhandiekar" % "jInstagram" % "1.0.10",
   "com.typesafe.slick" %% "slick" % "3.0.0",
-  "mysql" % "mysql-connector-java" % "5.1.6"
+  "mysql" % "mysql-connector-java" % "5.1.6",
+  "com.google.maps" % "google-maps-services" % "0.1.7"
 )

@@ -1,5 +1,5 @@
-@(name:String,mediaFeeds: Seq[org.jinstagram.entity.users.feed.MediaFeedData])
-<ul>
+@(name: String, mediaFeeds: Seq[org.jinstagram.entity.users.feed.MediaFeedData])
+<ul id="photos">
     <h3>@name</h3>
     <h3>Media count: @mediaFeeds.size</h3>
     @for(feed <- mediaFeeds){
@@ -9,3 +9,5 @@
         </li>
     }
 </ul>
+
+<script src="@routes.Assets.at("javascripts/scroll.js")" type="text/javascript"></script>

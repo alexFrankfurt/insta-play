@@ -11,6 +11,8 @@ GET         /searchPhotoByTag                       @controllers.basic.TagSearch
 GET         /location                               @controllers.map.Map.getLocation()
 GET         /showPhotoByLocation                    @controllers.map.Map.showPhoto(lat: String,lng: String)
 
+GET         /loadphotos                             @controllers.Gallery.load
+
 #Relationship
 #GET        /handleInstagramToken/users/relationship        @controllers.Subscribe.subscribeByTag(userId: String)
 
@@ -29,3 +31,7 @@ GET         /assets/*file                           @controllers.Assets.at(path=
 
 # Dev
 GET         /test                                   @controllers.Admin.test
+
+# Google Maps
+GET         /map                                    @controllers.map.GoogleMaps.map
+GET         /map/dart                               @controllers.map.GoogleMaps.mapDart
