@@ -37,6 +37,7 @@ class AppConstants {
   val GalleryPage = "/gallery"
   val PopularPage = "/popular"
   val SearchPhotoByTag = "/inputTag"
+  val Location = "/location"
 
   val DummyUserId = "5656"
 

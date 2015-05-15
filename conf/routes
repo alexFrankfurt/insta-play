@@ -7,6 +7,9 @@ GET         /popular                                @controllers.basic.PopularMe
 GET         /inputTag                               @controllers.basic.TagSearch.inputTag()
 GET         /searchPhotoByTag                       @controllers.basic.TagSearch.searchPhotoByTag(tagName: String)
 
+#Location
+GET         /location                               @controllers.map.Map.getLocation()
+GET         /showPhotoByLocation                    @controllers.map.Map.showPhoto(lat: String,lng: String)
 
 #Relationship
 #GET        /handleInstagramToken/users/relationship        @controllers.Subscribe.subscribeByTag(userId: String)
