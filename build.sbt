@@ -14,3 +14,5 @@ libraryDependencies ++= Seq(
   "mysql" % "mysql-connector-java" % "5.1.6",
   "com.google.maps" % "google-maps-services" % "0.1.7"
 )
+
+TwirlKeys.templateImports += "twirlc._"
