@@ -1,5 +1,6 @@
-package controllers;
+package controllers.extras;
 
+import controllers.OAuther;
 import org.jinstagram.entity.likes.LikesFeed;
 import org.jinstagram.entity.tags.TagMediaFeed;
 import org.jinstagram.entity.users.feed.MediaFeedData;

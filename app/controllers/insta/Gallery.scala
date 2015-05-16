@@ -1,7 +1,9 @@
-package controllers
+package controllers.insta
 
 import com.google.inject.Inject
+import controllers.OAuther
 import play.api.mvc.{Action, Controller}
+
 import scala.collection.JavaConversions.asScalaBuffer
 
 class Gallery @Inject() (oAuther: OAuther) extends Controller{

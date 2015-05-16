@@ -1,6 +1,7 @@
 package controllers.map;
 
 
+import constants.AppConstants;
 import controllers.OAuther;
 import org.jinstagram.entity.common.Location;
 import org.jinstagram.entity.locations.LocationSearchFeed;
@@ -8,8 +9,10 @@ import org.jinstagram.entity.users.feed.MediaFeed;
 import org.jinstagram.entity.users.feed.MediaFeedData;
 import org.jinstagram.exceptions.InstagramException;
 import play.mvc.Result;
+import play.twirl.api.Html;
 
 import javax.inject.Inject;
+import javax.swing.text.html.HTML;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,8 +26,14 @@ public class Map {
     @Inject
     OAuther location;
 
+    @Inject
+    AppConstants ac;
+
     public Result getLocation(){
-        return ok(views.html.map.location.render());
+        List<Html> list = new ArrayList<>();
+        list.add(ac.Navigation().render());
+        list.add(views.html.map.location.render());
+        return ok(ac.HomePage().apply(asScalaBuffer(list)));
     }
 
     public Result showPhoto(String lat,String lng){
@@ -48,7 +57,8 @@ public class Map {
             }
 
 //            System.out.println(mediaFeeds.size() + "sie");
-            return ok(views.html.list.render(asScalaBuffer(mediaFeeds)));
+            return ok(views.html.list.render(asScalaBuffer(mediaFeeds))
+            );
         }catch (InstagramException e){
             System.out.println("location " + e);
         }

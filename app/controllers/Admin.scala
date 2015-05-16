@@ -16,17 +16,17 @@ import scala.concurrent.duration.Duration
 class Admin @Inject() (ac: AppConstants, oa: OAuther) extends Controller{
   import ac._
   import oa._
-  def adminPage = Action {
-    val db = DBIP
-    val users = TableQuery[Users]
-    val resu = for (u <- users) yield u
-    val resf = resu.result
-    val res = Await.result(db.run(resf), Duration.Inf)
+  def mainPage = Action {
+//    val db = DBIP
+//    val users = TableQuery[Users]
+//    val resu = for (u <- users) yield u
+//    val resf = resu.result
+//    val res = Await.result(db.run(resf), Duration.Inf)
 
 //    val feedTag = instagram.getRecentMediaTags("medvedev", 2).getData.asScala.toList.head
 //    val feed = instagram.getUserLikes(DummyUserId).toString
 
-    Ok(HomePage(res.toString))
+    Ok(HomePage(Navigation()))
   }
   
   def test = Action {
