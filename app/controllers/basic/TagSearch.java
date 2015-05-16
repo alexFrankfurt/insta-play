@@ -33,7 +33,7 @@ public class TagSearch extends Controller {
             List<MediaFeedData> mediaList = tagMediaFeed.getData();
             MediaFeed recentMediaNextPage = search.instagram().getRecentMediaNextPage(tagMediaFeed.getPagination());
             int counter = 0;
-            while (recentMediaNextPage.getPagination() != null && counter < 4) {
+            while (recentMediaNextPage.getPagination() != null && counter < 1) {
                 mediaList.addAll(recentMediaNextPage.getData());
                 recentMediaNextPage = search.instagram().getRecentMediaNextPage(recentMediaNextPage.getPagination());
                 counter++;

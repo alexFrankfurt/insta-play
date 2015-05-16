@@ -20,7 +20,7 @@ public class PopularMedia {
     public Result getPopular(){
         try {
             List<MediaFeedData> mediaFeeds = popular.instagram().getPopularMedia().getData();
-            return ok(views.html.basic.galary.render("Popular Media",asScalaBuffer(mediaFeeds)));
+            return ok(views.html.basic.gallery.render("Popular Media",asScalaBuffer(mediaFeeds)));
         }catch (InstagramException c){
             System.out.println("popular " + c);
         }

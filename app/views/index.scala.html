@@ -1,22 +1,151 @@
 @(authorizationUrlScopes: String*)
 
-@main("Welcom to insta-bot"){
-    <p>
-        <h3>Hello to our coursework</h3>
+   @* @main("Welcom to instaPlay"){
+    @*<p>*@
+        @*<h3>Hello to our coursework</h3>*@
 
-        <a href="@{authorizationUrlScopes.head + {
-                val scopes = authorizationUrlScopes.tail
-                val res = scopes.isEmpty match {
-                    case true => ""
-                    case false =>
-                        val rScopes = new StringBuilder(s"&scope=${scopes.head}")
-                        scopes.tail foreach { sc =>
-                            rScopes append s"+$sc"
-                        }
-                        rScopes.toString()
-                }
-                res
-        }}"><img src="@routes.Assets.at("images/Instagram_signin.png")" alt="sing in with Instagram"/></a>
+        @*<a href="@{authorizationUrlScopes.head + {*@
+                @*val scopes = authorizationUrlScopes.tail*@
+                @*val res = scopes.isEmpty match {*@
+                    @*case true => ""*@
+                    @*case false =>*@
+                        @*val rScopes = new StringBuilder(s"&scope=${scopes.head}")*@
+                        @*scopes.tail foreach { sc =>*@
+                            @*rScopes append s"+$sc"*@
+                        @*}*@
+                        @*rScopes.toString()*@
+                @*}*@
+                @*res*@
+        @*}}"><img src="@routes.Assets.at("images/Instagram_signin.png")" alt="sing in with Instagram"/></a>*@
 
-    </p>
-}
+    @*</p>*@
+@*}*@
+    <HTML>
+        <head>
+            <meta charset="UTF-8" />
+            <title>InstaPlay</title>
+            <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/stylesheet.css")"/>
+            <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+            <link href='http://fonts.googleapis.com/css?family=Raleway:600,700,500,900,100,400,300' rel='stylesheet' type='text/css'>
+            <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/media.css")"/>
+            <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+        </head>
+        <body>
+            <div class="wrapper">
+                <header class="main-slide">
+                    <div class="header-top-content clearfix">
+                        <a href="#"><h1>InstaPlay</h1></a>
+                        <nav>
+                            <ul>
+                                <li><a href="@{authorizationUrlScopes.head + {
+                                    val scopes = authorizationUrlScopes.tail
+                                    val res = scopes.isEmpty match {
+                                        case true => ""
+                                        case false =>
+                                            val rScopes = new StringBuilder(s"&scope=${scopes.head}")
+                                            scopes.tail foreach { sc =>
+                                                rScopes append s"+$sc"
+                                            }
+                                            rScopes.toString()
+                                    }
+                                    res
+                                }}">Sign in</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Our team</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="header-content">
+                        <h2>Welcome to the new age of <span>Instagram</span></h2>
+                        <h3>modern, improved, yours</h3>
+                        <a href="@{authorizationUrlScopes.head + {
+                            val scopes = authorizationUrlScopes.tail
+                            val res = scopes.isEmpty match {
+                                case true => ""
+                                case false =>
+                                    val rScopes = new StringBuilder(s"&scope=${scopes.head}")
+                                    scopes.tail foreach { sc =>
+                                        rScopes append s"+$sc"
+                                    }
+                                    rScopes.toString()
+                            }
+                            res
+                        }}" class="sign">sign in with instagram</a>
+                    </div>
+                    <div class="clouds"></div>
+                </header>
+                <div class="main">
+                    <section class="about">
+                        <div class="about-content">
+                            <article>
+                                <img src="@routes.Assets.at("images/index/photocam.png")" alt="">
+                                <span>Take photos anywhere</span>
+                                <h4>About our project</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis iste illum consequuntur velit quod autem excepturi minima quo porro laboriosam.</p>
+                                <ul>
+                                    <li>
+                                        <h5>Lorem ipsum dolor sit.</h5>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio consequuntur tenetur ullam consequatur sapiente quisquam, porro ab eaque quo tempora.</p>
+                                    </li>
+                                    <li>
+                                        <h5>Lorem ipsum dolor sit.</h5>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio consequuntur tenetur ullam consequatur sapiente quisquam, porro ab eaque quo tempora.</p>
+                                    </li>
+                                    <li>
+                                        <h5>Lorem ipsum dolor sit.</h5>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio consequuntur tenetur ullam consequatur sapiente quisquam, porro ab eaque quo tempora.</p>
+                                    </li>
+                                    <li>
+                                        <h5>Lorem ipsum dolor sit.</h5>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio consequuntur tenetur ullam consequatur sapiente quisquam, porro ab eaque quo tempora.</p>
+                                    </li>
+                                    <li>
+                                        <h5>Lorem ipsum dolor sit.</h5>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio consequuntur tenetur ullam consequatur sapiente quisquam, porro ab eaque quo tempora.</p>
+                                    </li>
+                                </ul>
+                            </article>
+                        </div>
+                    </section>
+                    <section class="team">
+                        <div class="team-content">
+                            <article>
+                                <img src="@routes.Assets.at("images/index/team.png")" alt="">
+                                <span>Friends &amp; Colleagues</span>
+                                <h4>Our Team</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit assumenda tempore illo optio officiis deserunt eveniet repudiandae dicta. Quibusdam animi minus, asperiores ea debitis alias delectus optio veniam eveniet dolor, cumque quidem autem magni ab cupiditate accusantium unde, quae dicta.</p>
+                            </article>
+                            <ul>
+                                <li>
+                                    <h6>Member name</h6>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis esse ratione id doloribus est enim, sunt ipsam, laboriosam ex sed!</p>
+                                </li>
+                                <li>
+                                    <h6>Member name</h6>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis esse ratione id doloribus est enim, sunt ipsam, laboriosam ex sed!</p>
+                                </li>
+                                <li>
+                                    <h6>Member name</h6>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis esse ratione id doloribus est enim, sunt ipsam, laboriosam ex sed!</p>
+                                </li>
+                                <li>
+                                    <h6>Member name</h6>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis esse ratione id doloribus est enim, sunt ipsam, laboriosam ex sed!</p>
+                                </li>
+                                <li class="loop">
+                                    <div class="loopback" style="height: 512px; top: 243px;"></div>
+                                    <div class="loopback" style="height: 512px; top: 243px;"></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+                <footer>
+
+                </footer>
+            </div>
+        </body>
+    </HTML>
