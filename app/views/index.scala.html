@@ -1,25 +1,4 @@
 @(authorizationUrlScopes: String*)
-
-   @* @main("Welcom to instaPlay"){
-    @*<p>*@
-        @*<h3>Hello to our coursework</h3>*@
-
-        @*<a href="@{authorizationUrlScopes.head + {*@
-                @*val scopes = authorizationUrlScopes.tail*@
-                @*val res = scopes.isEmpty match {*@
-                    @*case true => ""*@
-                    @*case false =>*@
-                        @*val rScopes = new StringBuilder(s"&scope=${scopes.head}")*@
-                        @*scopes.tail foreach { sc =>*@
-                            @*rScopes append s"+$sc"*@
-                        @*}*@
-                        @*rScopes.toString()*@
-                @*}*@
-                @*res*@
-        @*}}"><img src="@routes.Assets.at("images/Instagram_signin.png")" alt="sing in with Instagram"/></a>*@
-
-    @*</p>*@
-@*}*@
     <HTML>
         <head>
             <meta charset="UTF-8" />

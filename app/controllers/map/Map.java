@@ -10,9 +10,9 @@ import org.jinstagram.entity.users.feed.MediaFeedData;
 import org.jinstagram.exceptions.InstagramException;
 import play.mvc.Result;
 import play.twirl.api.Html;
+import twirlc.SSeq;
 
 import javax.inject.Inject;
-import javax.swing.text.html.HTML;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,10 +30,19 @@ public class Map {
     AppConstants ac;
 
     public Result getLocation(){
-        List<Html> list = new ArrayList<>();
-        list.add(ac.Navigation().render());
-        list.add(views.html.map.location.render());
-        return ok(ac.HomePage().apply(asScalaBuffer(list)));
+        List<Html> styles = new ArrayList<>();
+        styles.add(ac.MainStyle().render());
+
+        Html[] arrcts = new Html[] {
+                ac.Navigation().render(),
+                views.html.map.location.render()
+        };
+        List<Html> content = new ArrayList<>();
+        content.add(ac.Content().render(arrcts));
+        return ok(ac.CommonPage().render("Map search",
+                SSeq.apply(asScalaBuffer(styles)),
+                SSeq.apply(asScalaBuffer(new ArrayList<Html>())),
+                SSeq.apply(asScalaBuffer(content))));
     }
 
     public Result showPhoto(String lat,String lng){

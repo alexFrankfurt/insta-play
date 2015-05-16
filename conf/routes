@@ -30,8 +30,9 @@ GET         /home                                   @controllers.Admin.mainPage
 GET         /assets/*file                           @controllers.Assets.at(path="/public", file)
 
 # Dev
-GET         /test                                   @controllers.Admin.test
+GET         /test                                   @controllers.TestJ.testF()
 
 # Google Maps
 GET         /map                                    @controllers.map.GoogleMaps.map
 GET         /map/dart                               @controllers.map.GoogleMaps.mapDart
+

@@ -31,6 +31,10 @@ nav>ul>li>a {
 nav>ul>li>a:hover {
     background-color: aquamarine;
 }
+#content {
+    width: 762px;
+    margin: 0 auto;
+}
 #content>nav {
     margin-bottom: 40px;
 }

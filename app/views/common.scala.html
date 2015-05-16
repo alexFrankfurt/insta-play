@@ -1,0 +1,27 @@
+@(title: String = "Play bot")(
+         styles: Option[Styles] = None,
+         scripts: Option[Scripts] = None,
+         contents: Option[Contents] = None)
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        @{
+            styles match {
+                case None => ""
+                case Some(sts) =>
+                    sts
+            }
+        }
+    </head>
+    <body>
+        @{
+            contents match {
+                case None => ""
+                case Some(cts) =>
+                    cts
+            }
+        }
+    </body>
+</html>

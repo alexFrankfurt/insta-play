@@ -2,10 +2,10 @@ package constants
 
 import javax.inject.Singleton
 
-import com.typesafe.config.ConfigObject
 import org.jinstagram.auth.model.Token
 import play.api.Play
 import play.api.Play.current
+import play.twirl.api.BaseScalaTemplate
 
 @Singleton
 class AppConstants {
@@ -28,6 +28,11 @@ class AppConstants {
     val Relationships = Scope.getString("relationships").get
   }
 
+  val MainStyle = views.html.style.main
+  val Favicon = views.html.style.favicon
+  val Content = views.html.style.content
+
+  val CommonPage = views.html.common
   val IndexPage = views.html.index
 
   val HomePage = views.html.homepage.main

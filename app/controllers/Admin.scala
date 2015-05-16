@@ -6,6 +6,7 @@ import constants.AppConstants
 import models.slick.Users
 import play.api.mvc.{Action, Controller}
 import play.twirl.api.Html
+import twirlc.SSeq
 
 import scala.collection.JavaConverters._
 import slick.driver.MySQLDriver.api._
@@ -26,7 +27,9 @@ class Admin @Inject() (ac: AppConstants, oa: OAuther) extends Controller{
 //    val feedTag = instagram.getRecentMediaTags("medvedev", 2).getData.asScala.toList.head
 //    val feed = instagram.getUserLikes(DummyUserId).toString
 
-    Ok(HomePage(Navigation()))
+    Ok(CommonPage("Admin page")(
+      styles = SSeq(Favicon(), MainStyle()),
+      contents = SSeq(Content(Navigation()))))
   }
   
   def test = Action {
