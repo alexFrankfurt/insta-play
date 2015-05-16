@@ -40,9 +40,9 @@ class OAuther @Inject() (consts: AppConstants) extends Controller {
 //    Redirect(GalaryPage)
 //    Redirect(PopularPage)
 //    Redirect(SearchPhotoByTag)
-    Redirect(Location)
+    Redirect(HomePath)
   }
 
-  val DBIP = Database.forURL(DBUrl, user = DBUser, driver = DBDriver)
+//  val DBIP = Database.forURL(DBUrl, user = DBUser, driver = DBDriver)
 }
 

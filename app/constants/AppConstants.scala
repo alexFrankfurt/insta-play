@@ -33,6 +33,8 @@ class AppConstants {
   val HomePage = views.html.homepage.main
   val HomePath = "/home"
 
+  val Navigation = views.html.homepage.nav
+
   val MapPage = views.html.map.show
 
   val ProfilePath = "/profile"

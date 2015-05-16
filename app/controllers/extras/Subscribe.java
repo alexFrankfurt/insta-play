@@ -1,5 +1,6 @@
-package controllers;
+package controllers.extras;
 
+import controllers.OAuther;
 import org.jinstagram.entity.relationships.RelationshipFeed;
 import org.jinstagram.exceptions.InstagramException;
 import org.jinstagram.model.Relationship;
