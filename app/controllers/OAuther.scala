@@ -39,6 +39,7 @@ class OAuther @Inject() (consts: AppConstants) extends Controller {
 //    Redirect(ProfilePage)
 //    Redirect(GalaryPage)
 //    Redirect(PopularPage)
+//    Redirect(Location)
 //    Redirect(SearchPhotoByTag)
     Redirect(HomePath)
   }

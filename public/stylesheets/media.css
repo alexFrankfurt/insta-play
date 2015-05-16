@@ -1,0 +1,9 @@
+@media all and (max-width: 1440px) {
+    .main-slide .header-content {
+        margin-top: 150px;
+    }
+
+    .about:before {
+        top: -300px;
+    }
+}
