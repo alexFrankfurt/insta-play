@@ -1,5 +1,6 @@
 package controllers.basic;
 
+import constants.AppConstants;
 import controllers.OAuther;
 import models.Tag;
 import org.jinstagram.entity.tags.TagMediaFeed;
@@ -9,6 +10,7 @@ import org.jinstagram.exceptions.InstagramException;
 import play.libs.Scala;
 import play.mvc.Controller;
 import play.mvc.Result;
+import play.twirl.api.Html;
 
 import javax.inject.Inject;
 import java.util.ArrayList;
@@ -20,13 +22,21 @@ import static scala.collection.JavaConversions.asScalaBuffer;
 public class TagSearch extends Controller {
 
     public Result inputTag(){
-        return ok(views.html.tagForm.render(Scala.Option((Tag) null)));
+        List<Html> list = new ArrayList<>();
+        list.add(ac.Navigation().render());
+        list.add(views.html.tagForm.render(Scala.Option((Tag) null)));
+        return ok(ac.HomePage().apply(asScalaBuffer(list)));
     }
 
     @Inject
     OAuther search;
 
+    @Inject
+    AppConstants ac;
+
     public  Result searchPhotoByTag(String tagName) {
+        List<Html> list = new ArrayList<>();
+        list.add(ac.Navigation().render());
         try {
             TagMediaFeed tagMediaFeed = search.instagram().getRecentMediaTags(tagName);
 
@@ -38,7 +48,8 @@ public class TagSearch extends Controller {
                 recentMediaNextPage = search.instagram().getRecentMediaNextPage(recentMediaNextPage.getPagination());
                 counter++;
             }
-            return ok(views.html.basic.gallery.render("Search",asScalaBuffer(mediaList)));
+            list.add(views.html.basic.gallery.render("Search", asScalaBuffer(mediaList)));
+            return ok(ac.HomePage().apply(asScalaBuffer(list)));
         } catch (InstagramException c) {
             System.out.println("find " + c.getMessage());
         }
