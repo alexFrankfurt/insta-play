@@ -2,16 +2,16 @@
 
 #Basic
 GET         /profile                                @controllers.basic.Profile.profile()
-GET         /gallery                                @controllers.insta.Gallery.gallery
+GET         /gallery                                @controllers.insta.Services.gallery
 GET         /popular                                @controllers.basic.PopularMedia.getPopular()
-GET         /inputTag                               @controllers.basic.TagSearch.inputTag()
-GET         /searchPhotoByTag                       @controllers.basic.TagSearch.searchPhotoByTag(tagName: String)
+GET         /inputTag                               @controllers.insta.Services.tagSearch
+GET         /searchPhotoByTag                       @controllers.insta.Services.tagSearchSpecific(tag: String)
 
 #Location
 GET         /location                               @controllers.map.Map.getLocation()
 GET         /showPhotoByLocation                    @controllers.map.Map.showPhoto(lat: String,lng: String)
 
-GET         /loadphotos                             @controllers.insta.Gallery.load
+GET         /loadphotos                             @controllers.insta.Services.load
 
 #Relationship
 #GET        /handleInstagramToken/users/relationship        @controllers.extras.Subscribe.subscribeByTag(userId: String)
