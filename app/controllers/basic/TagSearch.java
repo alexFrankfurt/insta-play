@@ -21,13 +21,6 @@ import static scala.collection.JavaConversions.asScalaBuffer;
 
 public class TagSearch extends Controller {
 
-    public Result inputTag(){
-        List<Html> list = new ArrayList<>();
-        list.add(ac.Navigation().render());
-        list.add(views.html.tagForm.render(Scala.Option((Tag) null)));
-        return ok(ac.HomePage().apply(asScalaBuffer(list)));
-    }
-
     @Inject
     OAuther search;
 

@@ -10,8 +10,7 @@
         @{
             styles match {
                 case None => ""
-                case Some(sts) =>
-                    sts
+                case Some(sts) => sts
             }
         }
     </head>
@@ -19,8 +18,13 @@
         @{
             contents match {
                 case None => ""
-                case Some(cts) =>
-                    cts
+                case Some(cts) => cts
+            }
+        }
+        @{
+            scripts match {
+                case None => ""
+                case Some(sps) => sps
             }
         }
     </body>

@@ -28,8 +28,14 @@ class AppConstants {
     val Relationships = Scope.getString("relationships").get
   }
 
+  // Styles
   val MainStyle = views.html.style.main
   val Favicon = views.html.style.favicon
+
+  // Scripts
+  val ScrollScript = views.html.script.scroll
+  val TagSearchScript = views.html.script.tagSearch
+
   val Content = views.html.style.content
 
   val CommonPage = views.html.common
@@ -39,9 +45,10 @@ class AppConstants {
   val HomePath = "/home"
 
   val Navigation = views.html.homepage.nav
+  val TagForm = views.html.tagForm
 
   val MapPage = views.html.map.show
-
+  val AdditionalPhoto = views.html.basic.additionalPhoto
   val ProfilePath = "/profile"
 
   val GalleryPage = views.html.basic.gallery
