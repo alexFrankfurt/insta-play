@@ -3,7 +3,7 @@ package controllers
 import javax.inject.Inject
 
 import constants.AppConstants
-import play.api.mvc.{Action, Controller}
+import play.api.mvc.{Result, Action, Controller}
 
 
 class Application @Inject() (ac: AppConstants) extends Controller{
@@ -13,4 +13,5 @@ class Application @Inject() (ac: AppConstants) extends Controller{
   def index = Action {
     Ok(IndexPage(AuthorizationUrl, Likes, Comments, Relationships))
   }
+
 }
