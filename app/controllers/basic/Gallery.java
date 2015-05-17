@@ -23,19 +23,18 @@ public class Gallery {
     AppConstants ac;
 
     public Result gallery(){
-        List<Html> list = new ArrayList<>();
-        list.add(ac.Navigation().render());
+        List<Html> contents = new ArrayList<>();
+        contents.add(ac.Navigation().render());
         try{
 
             MediaFeed mediaFeed = gallery.instagram().getUserFeeds(null, null, 33);
             List<MediaFeedData> mediaFeedList = mediaFeed.getData();
             System.out.println(mediaFeedList.size() + " = size");
-            list.add(ac.GalleryPage().render("Gallery", asScalaBuffer(mediaFeedList)));
-            return ok(ac.HomePage().apply(asScalaBuffer(list)));
+            contents.add(ac.GalleryPage().render("Gallery", asScalaBuffer(mediaFeedList)));
+            return ok(ac.HomePage().apply(asScalaBuffer(contents)));
         }catch (InstagramException c){
             System.out.println("gallery " + c);
         }
         return ok(views.html.basic.error.apply());
-
     }
 }

@@ -29,6 +29,7 @@ class AppConstants {
   }
 
   val MainStyle = views.html.style.main
+  val ScrollScript = views.html.script.scroll
   val Favicon = views.html.style.favicon
   val Content = views.html.style.content
 

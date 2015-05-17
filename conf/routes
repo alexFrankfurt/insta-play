@@ -2,7 +2,7 @@
 
 #Basic
 GET         /profile                                @controllers.basic.Profile.profile()
-GET         /gallery                                @controllers.basic.Gallery.gallery()
+GET         /gallery                                @controllers.insta.Gallery.gallery
 GET         /popular                                @controllers.basic.PopularMedia.getPopular()
 GET         /inputTag                               @controllers.basic.TagSearch.inputTag()
 GET         /searchPhotoByTag                       @controllers.basic.TagSearch.searchPhotoByTag(tagName: String)
