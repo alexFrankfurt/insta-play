@@ -1,38 +1,39 @@
+#OAuther
+GET        /                             @controllers.Application.index
+GET        /handleInstagramToken/        @controllers.OAuther.createInsta(code: String)
+
 # Home page
+# Exploring jInstagram
+GET        /home                         @controllers.Admin.mainPage
 
 #Basic
-GET         /profile                                @controllers.basic.Profile.profile()
-GET         /gallery                                @controllers.insta.Services.gallery
-GET         /popular                                @controllers.basic.PopularMedia.getPopular()
-GET         /inputTag                               @controllers.insta.Services.tagSearch
-GET         /searchPhotoByTag                       @controllers.insta.Services.tagSearchSpecific(tag: String)
+GET        /profile                      @controllers.basic.Profile.profile
+GET        /gallery                      @controllers.insta.Services.gallery
+GET        /popular                      @controllers.basic.PopularMedia.getPopular
+GET        /inputTag                     @controllers.insta.Services.tagSearch
+GET        /searchPhotoByTag             @controllers.insta.Services.tagSearchSpecific(tag: String)
+GET        /logout                       @controllers.OAuther.logout
 
 #Location
-GET         /location                               @controllers.map.Map.getLocation()
-GET         /showPhotoByLocation                    @controllers.map.Map.showPhoto(lat: String,lng: String)
+GET        /location                     @controllers.map.Map.getLocation
+GET        /showPhotoByLocation          @controllers.map.Map.showPhoto(lat: String,lng: String)
 
-GET         /loadphotos                             @controllers.insta.Services.load
+GET        /loadphotos                   @controllers.insta.Services.load
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET        /assets/*file                 @controllers.Assets.at(path="/public", file)
+
+# Dev
+GET        /test                         @controllers.TestJ.testF()
+
+# Google Maps
+GET        /map                          @controllers.map.GoogleMaps.map
+GET        /map/dart                     @controllers.map.GoogleMaps.mapDart
+
 
 #Relationship
 #GET        /handleInstagramToken/users/relationship        @controllers.extras.Subscribe.subscribeByTag(userId: String)
 
 #Likes
-POST        /handleInstagramToken/media/like        @controllers.extras.LikeMedia.likeByTag
-
-
-GET         /                                       @controllers.Application.index
-GET         /handleInstagramToken/                  @controllers.OAuther.createInsta(code: String)
-
-# Exploring jInstagram
-GET         /home                                   @controllers.Admin.mainPage
-
-# Map static resources from the /public folder to the /assets URL path
-GET         /assets/*file                           @controllers.Assets.at(path="/public", file)
-
-# Dev
-GET         /test                                   @controllers.TestJ.testF()
-
-# Google Maps
-GET         /map                                    @controllers.map.GoogleMaps.map
-GET         /map/dart                               @controllers.map.GoogleMaps.mapDart
-
+#POST        /handleInstagramToken/media/like        @controllers.extras.LikeMedia.likeByTag

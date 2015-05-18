@@ -37,4 +37,6 @@ public class Gallery {
         }
         return ok(views.html.basic.error.apply());
     }
+
+
 }

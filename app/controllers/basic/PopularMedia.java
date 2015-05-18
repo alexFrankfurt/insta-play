@@ -5,6 +5,7 @@ import constants.AppConstants;
 import controllers.OAuther;
 import org.jinstagram.entity.users.feed.MediaFeedData;
 import org.jinstagram.exceptions.InstagramException;
+import play.mvc.Controller;
 import play.mvc.Result;
 import play.twirl.api.Html;
 
@@ -15,7 +16,7 @@ import java.util.List;
 import static play.mvc.Results.ok;
 import static scala.collection.JavaConversions.asScalaBuffer;
 
-public class PopularMedia {
+public class PopularMedia extends Controller {
 
     @Inject
     OAuther popular;

@@ -6,7 +6,8 @@ import controllers.OAuther;
 import org.jinstagram.entity.users.basicinfo.UserInfo;
 import org.jinstagram.entity.users.basicinfo.UserInfoData;
 import org.jinstagram.exceptions.InstagramException;
-import play.mvc.Result;
+import play.Routes;
+import play.mvc.*;
 import play.twirl.api.Html;
 
 import javax.inject.Inject;
@@ -17,7 +18,7 @@ import java.util.List;
 import static play.mvc.Results.ok;
 import static scala.collection.JavaConversions.asScalaBuffer;
 
-public class Profile {
+public class Profile extends Controller {
     @Inject
     OAuther profile;
 
@@ -40,4 +41,6 @@ public class Profile {
         }
         return ok(views.html.basic.error.render());
     }
+
+
 }

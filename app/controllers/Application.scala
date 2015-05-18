@@ -14,4 +14,5 @@ class Application @Inject() (ac: AppConstants) extends Controller{
     Ok(IndexPage(AuthorizationUrl, Likes, Comments, Relationships))
   }
 
+
 }
