@@ -25,6 +25,9 @@ public class PopularMedia extends Controller {
     AppConstants ac;
 
     public Result getPopular(){
+        if (!popular.auther()){
+            return ok(views.html.basic.error.render());
+        }
         List<Html> list = new ArrayList<>();
         list.add(ac.Navigation().render());
 

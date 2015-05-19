@@ -31,10 +31,14 @@ class AppConstants {
   // Styles
   val MainStyle = views.html.style.main
   val Favicon = views.html.style.favicon
+  val Stylesheet = views.html.style.stylesheet
+  val StyleMedia = views.html.style.media
+  val GalleryFonts = views.html.style.fonts
 
   // Scripts
   val ScrollScript = views.html.script.scroll
   val TagSearchScript = views.html.script.tagSearch
+  val GalleryScripts = views.html.script.gallery
 
   val Content = views.html.style.content
 
@@ -49,9 +53,11 @@ class AppConstants {
 
   val MapPage = views.html.map.show
   val AdditionalPhoto = views.html.basic.additionalPhoto
+
+  val ProfilePage = views.html.basic.profile
   val ProfilePath = "/profile"
 
-  val GalleryPage = views.html.basic.gallery
+  val GalleryPage = views.html.page.gallery
   val GalleryPath = "/gallery"
 
   val PopularPath = "/popular"

@@ -7,7 +7,7 @@ GET        /handleInstagramToken/        @controllers.OAuther.createInsta(code: 
 GET        /home                         @controllers.Admin.mainPage
 
 #Basic
-GET        /profile                      @controllers.basic.Profile.profile
+GET        /profile                      @controllers.insta.Services.profile
 GET        /gallery                      @controllers.insta.Services.gallery
 GET        /popular                      @controllers.basic.PopularMedia.getPopular
 GET        /inputTag                     @controllers.insta.Services.tagSearch

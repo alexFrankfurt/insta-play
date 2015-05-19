@@ -1,0 +1,144 @@
+@(mediaFeeds: Seq[org.jinstagram.entity.users.feed.MediaFeedData])
+<div class="menu-open">
+    <ul>
+        <li><a href="/profile">Me</a></li>
+        <li><a href="/gallery" class="select">Feed</a></li>
+        <li><a href="#">Map search</a></li>
+        <li><a href="#">Popular media</a></li>
+        <li><a href="#">Search by tag</a></li>
+        <li><a href="#" class="logout">Log out</a></li>
+    </ul>
+</div>
+<div class="wrapper">
+    <a href="#" id="up" class="anchor"></a>
+    <header>
+        <div class="header-top">
+            <div class="header-top-content clearfix">
+                <a href="#up"><h1>InstaPlay</h1></a>
+                <nav>
+                    <ul>
+                        <li><a href="#" id="menuButton">Menu</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <div class="main">
+        <ul class="feed">
+            @for(item <- mediaFeeds){
+            <li class="item">
+                <figure>
+                    <img src="@item.getImages.getStandardResolution.getImageUrl" width="480px" height="480px" alt="">
+                    <figcaption>
+                        <p class="label">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, dicta! <a href="#" class="username">&#64;@item.getUser.getUserName</a>
+                            @for(tag <- item.getTags){
+                                <a class="tag" href="#">&#35;@tag</a>
+                            }
+                        <time></time>
+                        <a href="#" class="place">somewhere</a>
+                    </figcaption>
+                </figure>
+                <div class="item-desc">
+                    <a href="#" class="user-info clearfix">
+                        <img src="@item.getUser.getProfilePictureUrl" alt="">
+                        <div>
+                            <p>@item.getUser.getFullName</p>
+                            <p>@item.getUser.getUserName</p>
+                        </div>
+                    </a>
+                    <div class="like-info">
+                        <a href="#" class="like"></a>
+                        <p class="like count">@item.getLikes.getCount<span> Like</span></p>
+                        <ul>
+                            @for(user <- item.getLikes.getLikesUserList) {
+                                <li><a href="#">&#64;@user.getUserName</a>,</li>
+                            }
+                        </ul>
+                    </div>
+                    <div class="comment-info">
+                        <a href="#">view all</a>
+                        <p><span>@item.getComments.getCount</span> Comments</p>
+                        <ul>
+
+                            @for(comment <- item.getComments.getComments){
+                                <li class="clearfix">
+                                    <img src="@comment.getCommentFrom.getProfilePicture" alt="">
+                                    <a href="#">@comment.getCommentFrom.getUsername</a>
+                                    <time>@comment.getCreatedTime</time>
+                                    <p>@comment.getText</p>
+                                </li>
+                            }
+                        </ul>
+                        <form action="#">
+                            <span>
+                                <textarea name="message" required id="message" rows="2"></textarea>
+                                <label for="message">
+                                    <span>Write your comment here</span>
+                                </label>
+                            </span>
+                            <input type="submit" value="submit">
+                        </form>
+                    </div>
+                </div>
+            </li>
+            }
+        </ul>
+    </div>
+    <footer>
+            &copy;2015 InstaPlay, Inc. All rights reserved.
+    </footer>
+</div>
+
+<script>
+            (function() {
+                if (!String.prototype.trim) {
+                    (function() {
+                        var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+                        String.prototype.trim = function() {
+                            return this.replace(rtrim, '');
+                        };
+                    })();
+                }
+
+                [].slice.call( document.querySelectorAll( '.comment-info form textarea' ) ).forEach( function( inputEl ) {
+                    if( inputEl.value.trim() !== '' ) {
+                        classie.add( inputEl.parentNode, 'input--filled' );
+                    }
+                    inputEl.addEventListener( 'focus', onInputFocus );
+                    inputEl.addEventListener( 'blur', onInputBlur );
+                } );
+
+                function onInputFocus( ev ) {
+                    classie.add( ev.target.parentNode, 'input--filled' );
+                }
+
+                function onInputBlur( ev ) {
+                    if( ev.target.value.trim() === '' ) {
+                        classie.remove( ev.target.parentNode, 'input--filled' );
+                    }
+                }
+            })();
+
+            var buttonMenu = document.querySelector('#menuButton');
+            var wrap = document.querySelector('.wrapper');
+            buttonMenu.onclick = function(e) {
+                e.preventDefault();
+                wrap.classList.toggle('opened');
+                return false;
+            }
+            jQuery('.header-top-content a:not(#menuButton)').click( function(){
+                var scroll_el = jQuery(this).attr('href');
+                jQuery('html, body').animate({ scrollTop: jQuery(scroll_el).offset().top }, 500);
+                return false;
+            });
+            var checkScroll = function() {
+                var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+                var header = document.querySelector('.header-top');
+                if((scrolled) > parseInt(document.querySelector('.header-top').offsetTop)) header.classList.add('fixedNav');
+                else header.classList.remove('fixedNav');
+            }
+            window.onscroll = function() {
+                checkScroll();
+            }
+            checkScroll();
+        </script>

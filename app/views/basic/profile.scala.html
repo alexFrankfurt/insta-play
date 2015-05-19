@@ -1,15 +1,126 @@
-@(userData:org.jinstagram.entity.users.basicinfo.UserInfoData)
-<ul>
-  <li>UserId: @userData.getId</li>
-    @if(userData.getFirst_name == null){
-      <li>Full Name: @userData.getFullName</li>
-    }else{
-      <li>Full Name: @userData.getFirst_name</li>
-    }
-  @if(userData.getLast_name != null) {
-    <li>Last Name: @userData.getLast_name</li>
-  }
-  <li><img src="@userData.getProfile_picture" alt="profile_pic"/></li>
-  <li>Follows: @userData.getCounts.getFollows</li>
-  <li>Followed by: @userData.getCounts.getFollwed_by</li>
-</ul>
+@(userData:org.jinstagram.entity.users.basicinfo.UserInfoData, mediaFeed: Seq[org.jinstagram.entity.users.feed.MediaFeedData])
+ <div class="menu-open">
+      <ul>
+        <li><a href="/profile">Me</a></li>
+        <li><a href="/gallery" class="select">Feed</a></li>
+        <li><a href="#">Map search</a></li>
+        <li><a href="#">Popular media</a></li>
+        <li><a href="#">Search by tag</a></li>
+        <li><a href="#" class="logout">Log out</a></li>
+      </ul>
+    </div>
+    <div class="wrapper">
+      <a href="#" id="up" class="anchor"></a>
+      <header>
+        <div class="header-top">
+          <div class="header-top-content clearfix">
+            <a href="#up"><h1>InstaPlay</h1></a>
+            <nav>
+              <ul>
+                <li><a href="#" id="menuButton">Menu</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </header>
+      <div class="main">
+        <div class="profile">
+          <div class="user-info">
+            <div class="userpic clearfix">
+              <img src="@userData.getProfile_picture" alt="">
+              <span>@userData.getUsername</span>
+              <p>@userData.getFirst_name @userData.getLast_name</p>
+            </div>
+            <ul class="counter clearfix">
+              <li>
+                <a href="#">
+                  <p><span>@userData.getCounts.getMedia</span> media</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <p><span>@userData.getCounts.getFollwed_by</span> followers</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <p><span>@userData.getCounts.getFollows</span> following</p>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <ul class="profile-feed clearfix">
+            @for(item <- mediaFeed){
+            <li>
+              <a href="#">
+                <figure>
+                  <time>@item.getCreatedTime</time>
+                  <img src="@item.getImages.getLowResolution.getImageUrl" alt="">
+                  <figcaption>
+                    <span>@item.getLikes.getCount</span>
+                    <span>@item.getComments.getCount</span>
+                  </figcaption>
+                </figure>
+              </a>
+            </li>
+            }
+          </ul>
+        </div>
+      </div>
+      <footer>
+          &copy;2015 InstaPlay, Inc. All rights reserved.
+      </footer>
+    </div>
+    <script>
+            (function() {
+                if (!String.prototype.trim) {
+                    (function() {
+                        var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+                        String.prototype.trim = function() {
+                            return this.replace(rtrim, '');
+                        };
+                    })();
+                }
+
+                [].slice.call( document.querySelectorAll( '.comment-info form textarea' ) ).forEach( function( inputEl ) {
+                    if( inputEl.value.trim() !== '' ) {
+                        classie.add( inputEl.parentNode, 'input--filled' );
+                    }
+                    inputEl.addEventListener( 'focus', onInputFocus );
+                    inputEl.addEventListener( 'blur', onInputBlur );
+                } );
+
+                function onInputFocus( ev ) {
+                    classie.add( ev.target.parentNode, 'input--filled' );
+                }
+
+                function onInputBlur( ev ) {
+                    if( ev.target.value.trim() === '' ) {
+                        classie.remove( ev.target.parentNode, 'input--filled' );
+                    }
+                }
+            })();
+
+            var buttonMenu = document.querySelector('#menuButton');
+            var wrap = document.querySelector('.wrapper');
+            buttonMenu.onclick = function(e) {
+                e.preventDefault();
+                wrap.classList.toggle('opened');
+                return false;
+            }
+            jQuery('.header-top-content a:not(#menuButton)').click( function(){
+                var scroll_el = jQuery(this).attr('href');
+                jQuery('html, body').animate({ scrollTop: jQuery(scroll_el).offset().top }, 500);
+                return false;
+            });
+            var checkScroll = function() {
+                var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+                var header = document.querySelector('.header-top');
+                if((scrolled) > parseInt(document.querySelector('.header-top').offsetTop)) header.classList.add('fixedNav');
+                else header.classList.remove('fixedNav');
+            }
+            window.onscroll = function() {
+                checkScroll();
+            }
+            checkScroll();
+        </script>

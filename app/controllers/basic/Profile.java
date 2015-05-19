@@ -2,6 +2,7 @@ package controllers.basic;
 
 
 import constants.AppConstants;
+import controllers.Application;
 import controllers.OAuther;
 import org.jinstagram.entity.users.basicinfo.UserInfo;
 import org.jinstagram.entity.users.basicinfo.UserInfoData;
@@ -26,19 +27,20 @@ public class Profile extends Controller {
     AppConstants ac;
 
     public Result profile(){
+        if (!profile.auther()){
+            return ok(views.html.basic.error.render());
+        }
         List<Html> list = new ArrayList<>();
         list.add(ac.Navigation().render());
 
-        try{
-            UserInfo userInfo = profile.instagram().getCurrentUserInfo();
-            UserInfoData userInfoData = userInfo.getData();
-
-            list.add(views.html.basic.profile.render(userInfoData));
-            return ok(ac.HomePage().apply(asScalaBuffer(list)));
-//            return ok(views.html.basic.profile.render(userInfoData));
-        } catch (InstagramException c){
-            System.out.println("userInfo" + c);
-        }
+//        try{
+//            UserInfo userInfo = profile.instagram().getCurrentUserInfo();
+//            UserInfoData userInfoData = userInfo.getData();
+//            list.add(views.html.basic.profile.render(userInfoData));
+//            return ok(ac.HomePage().apply(asScalaBuffer(list)));
+//        } catch (InstagramException c){
+//            System.out.println("userInfo" + c);
+//        }
         return ok(views.html.basic.error.render());
     }
 

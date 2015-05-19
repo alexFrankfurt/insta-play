@@ -21,7 +21,6 @@ class OAuther @Inject() (consts: AppConstants) extends Controller {
                     .apiKey(ClientId)
                     .apiSecret(ClientSecret)
                     .callback(RedirectUri)
-                    .scope("likes")
                     .build()
 
   val emptyToken: Token = null
@@ -29,16 +28,19 @@ class OAuther @Inject() (consts: AppConstants) extends Controller {
   //val authorizationUrl = service.getAuthorizationUrl(emptyToken)
 
   var instagram = new Instagram(emptyToken)
+  var auther : Boolean = false
 
   def createInsta(code: String) = Action {
     val verifier = new Verifier(code)
     val accessToken = service.getAccessToken(emptyToken, verifier)
     instagram = new Instagram(accessToken)
-    Redirect(HomePath)
+    auther = true
+    Redirect(GalleryPath)
   }
 
   def logout = Action {
     instagram = null;
+    auther = false;
     Redirect("/")
   }
 

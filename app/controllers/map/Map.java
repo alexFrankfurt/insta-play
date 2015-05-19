@@ -30,6 +30,9 @@ public class Map {
     AppConstants ac;
 
     public Result getLocation(){
+        if (!location.auther()){
+            return ok(views.html.basic.error.render());
+        }
         List<Html> styles = new ArrayList<>();
         styles.add(ac.MainStyle().render());
 

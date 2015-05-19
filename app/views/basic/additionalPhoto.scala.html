@@ -2,6 +2,16 @@
 
 @for(photo <- photos){
     <li>
+        <p>
+            <a href="@photo.getUser.getWebsiteUrl">
+                <img src="@photo.getUser.getProfilePictureUrl"/>
+                @photo.getUser.getUserName
+            </a>
+        </p>
         <img src="@photo.getImages.getThumbnail.getImageUrl" alt="@photo.getId"/>
+        @for(comment <- photo.getComments.getComments){
+            <p>@comment.getCommentFrom.getUsername</p>
+            <p>@comment.getText</p>
+        }
     </li>
 }

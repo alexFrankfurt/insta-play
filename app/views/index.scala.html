@@ -1,130 +1,218 @@
 @(authorizationUrlScopes: String*)
-    <HTML>
-        <head>
-            <meta charset="UTF-8" />
-            <title>InstaPlay</title>
-            <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/stylesheet.css")"/>
-            <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
-            <link href='http://fonts.googleapis.com/css?family=Raleway:600,700,500,900,100,400,300' rel='stylesheet' type='text/css'>
-            <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/media.css")"/>
+<HTML>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Insta Play</title>
+        <link rel="stylesheet" type="text/css" href="@routes.Assets.at("stylesheets/stylesheet.css")" />
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/media.css")">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Raleway:600,700,500,900,100,400,300' rel='stylesheet' type='text/css'>
+        <script src="@routes.Assets.at("javascripts/classie.js")"></script>
+        <script src="@routes.Assets.at("javascripts/jquery-2.1.4.min.js")"></script>
             <!--[if lt IE 9]>
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-        </head>
-        <body>
-            <div class="wrapper">
-                <header class="main-slide">
-                    <div class="header-top-content clearfix">
-                        <a href="#"><h1>InstaPlay</h1></a>
+    </head>
+    <body>
+        <div class="menu-open">
+            <ul>
+                <li><a href="/profile">Me</a></li>
+                <li><a href="/gallery">Feed</a></li>
+                <li><a href="/location">Map search</a></li>
+                <li><a href="/popular">Popular media</a></li>
+                <li><a href="/inputTag">Search by tag</a></li>
+                <li><a href="/logout" class="logout">Log out</a></li>
+            </ul>
+        </div>
+        <div class="wrapper">
+            <a href="#" id="up" class="anchor"></a>
+            <header class="main-slide">
+                <div class="header-top clearfix">
+                    <div class="header-top-content">
+                        <a href="#up"><h1>InstaPlay</h1></a>
                         <nav>
                             <ul>
-                                <li><a href="@{authorizationUrlScopes.head + {
-                                    val scopes = authorizationUrlScopes.tail
-                                    val res = scopes.isEmpty match {
-                                        case true => ""
-                                        case false =>
-                                            val rScopes = new StringBuilder(s"&scope=${scopes.head}")
-                                            scopes.tail foreach { sc =>
-                                                rScopes append s"+$sc"
-                                            }
-                                            rScopes.toString()
-                                    }
-                                    res
-                                }}">Sign in</a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Our team</a></li>
-                                <li><a href="#">Contact</a></li>
+                                <li><a href="#about">About</a></li>
+                                <li><a href="#team">Our team</a></li>
+                                <li><a href="#feedback">Contact</a></li>
+                                <li><a href="#" id="menuButton">Menu</a></li>
                             </ul>
                         </nav>
                     </div>
-                    <div class="header-content">
-                        <h2>Welcome to the new age of <span>Instagram</span></h2>
-                        <h3>modern, improved, yours</h3>
-                        <a href="@{authorizationUrlScopes.head + {
-                            val scopes = authorizationUrlScopes.tail
-                            val res = scopes.isEmpty match {
-                                case true => ""
-                                case false =>
-                                    val rScopes = new StringBuilder(s"&scope=${scopes.head}")
-                                    scopes.tail foreach { sc =>
-                                        rScopes append s"+$sc"
-                                    }
-                                    rScopes.toString()
-                            }
-                            res
-                        }}" class="sign">sign in with instagram</a>
-                    </div>
-                    <div class="clouds"></div>
-                </header>
-                <div class="main">
-                    <section class="about">
-                        <div class="about-content">
-                            <article>
-                                <img src="@routes.Assets.at("images/index/photocam.png")" alt="">
-                                <span>Take photos anywhere</span>
-                                <h4>About our project</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis iste illum consequuntur velit quod autem excepturi minima quo porro laboriosam.</p>
-                                <ul>
-                                    <li>
-                                        <h5>Lorem ipsum dolor sit.</h5>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio consequuntur tenetur ullam consequatur sapiente quisquam, porro ab eaque quo tempora.</p>
-                                    </li>
-                                    <li>
-                                        <h5>Lorem ipsum dolor sit.</h5>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio consequuntur tenetur ullam consequatur sapiente quisquam, porro ab eaque quo tempora.</p>
-                                    </li>
-                                    <li>
-                                        <h5>Lorem ipsum dolor sit.</h5>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio consequuntur tenetur ullam consequatur sapiente quisquam, porro ab eaque quo tempora.</p>
-                                    </li>
-                                    <li>
-                                        <h5>Lorem ipsum dolor sit.</h5>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio consequuntur tenetur ullam consequatur sapiente quisquam, porro ab eaque quo tempora.</p>
-                                    </li>
-                                    <li>
-                                        <h5>Lorem ipsum dolor sit.</h5>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio consequuntur tenetur ullam consequatur sapiente quisquam, porro ab eaque quo tempora.</p>
-                                    </li>
-                                </ul>
-                            </article>
-                        </div>
-                    </section>
-                    <section class="team">
-                        <div class="team-content">
-                            <article>
-                                <img src="@routes.Assets.at("images/index/team.png")" alt="">
-                                <span>Friends &amp; Colleagues</span>
-                                <h4>Our Team</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit assumenda tempore illo optio officiis deserunt eveniet repudiandae dicta. Quibusdam animi minus, asperiores ea debitis alias delectus optio veniam eveniet dolor, cumque quidem autem magni ab cupiditate accusantium unde, quae dicta.</p>
-                            </article>
+                </div>
+                <div class="header-content">
+                    <h2>Welcome to the new age of <span>Instagram</span></h2>
+                    <h3>modern, improved, yours</h3>
+                    <a href="@{authorizationUrlScopes.head + {
+                        val scopes = authorizationUrlScopes.tail
+                        val res = scopes.isEmpty match {
+                            case true => ""
+                            case false =>
+                                val rScopes = new StringBuilder(s"&scope=${scopes.head}")
+                                scopes.tail foreach { sc =>
+                                    rScopes append s"+$sc"
+                                }
+                                rScopes.toString()
+                        }
+                        res
+                    }}" class="sign">sign in with instagram</a>
+                </div>
+                <div class="clouds"></div>
+            </header>
+            <div class="main">
+                <a href="#" id="about" class="anchor"></a>
+                <section class="about">
+                    <div class="about-content">
+                        <article>
+                            <img src="@routes.Assets.at("images/index/photocam.png")" alt="photocam">
+                            <span>Take photos anywhere</span>
+                            <h4>About our project</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis iste illum consequuntur velit quod autem excepturi minima quo porro laboriosam.</p>
                             <ul>
                                 <li>
-                                    <h6>Member name</h6>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis esse ratione id doloribus est enim, sunt ipsam, laboriosam ex sed!</p>
+                                    <h5>Lorem ipsum dolor sit.</h5>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio consequuntur tenetur ullam consequatur sapiente quisquam, porro ab eaque quo tempora.</p>
                                 </li>
                                 <li>
-                                    <h6>Member name</h6>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis esse ratione id doloribus est enim, sunt ipsam, laboriosam ex sed!</p>
+                                    <h5>Lorem ipsum dolor sit.</h5>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio consequuntur tenetur ullam consequatur sapiente quisquam, porro ab eaque quo tempora.</p>
                                 </li>
                                 <li>
-                                    <h6>Member name</h6>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis esse ratione id doloribus est enim, sunt ipsam, laboriosam ex sed!</p>
+                                    <h5>Lorem ipsum dolor sit.</h5>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio consequuntur tenetur ullam consequatur sapiente quisquam, porro ab eaque quo tempora.</p>
                                 </li>
                                 <li>
-                                    <h6>Member name</h6>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis esse ratione id doloribus est enim, sunt ipsam, laboriosam ex sed!</p>
+                                    <h5>Lorem ipsum dolor sit.</h5>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio consequuntur tenetur ullam consequatur sapiente quisquam, porro ab eaque quo tempora.</p>
                                 </li>
-                                <li class="loop">
-                                    <div class="loopback" style="height: 512px; top: 243px;"></div>
-                                    <div class="loopback" style="height: 512px; top: 243px;"></div>
+                                <li>
+                                    <h5>Lorem ipsum dolor sit.</h5>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio consequuntur tenetur ullam consequatur sapiente quisquam, porro ab eaque quo tempora.</p>
                                 </li>
                             </ul>
-                        </div>
-                    </section>
-                </div>
-                <footer>
-
-                </footer>
+                        </article>
+                    </div>
+                </section>
+                <a href="#" id="team" class="anchor"></a>
+                <section class="team">
+                    <div class="team-content">
+                        <article>
+                            <img src="@routes.Assets.at("images/index/team.png")" alt="team">
+                            <span>Friends &amp; Colleagues</span>
+                            <h4>Our Team</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit assumenda tempore illo optio officiis deserunt eveniet repudiandae dicta. Quibusdam animi minus, asperiores ea debitis alias delectus optio veniam eveniet dolor, cumque quidem autem magni ab cupiditate accusantium unde, quae dicta.</p>
+                        </article>
+                        <ul>
+                            <li>
+                                <h6>Member name</h6>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis esse ratione id doloribus est enim, sunt ipsam, laboriosam ex sed!</p>
+                            </li>
+                            <li>
+                                <h6>Member name</h6>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis esse ratione id doloribus est enim, sunt ipsam, laboriosam ex sed!</p>
+                            </li>
+                            <li>
+                                <h6>Member name</h6>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis esse ratione id doloribus est enim, sunt ipsam, laboriosam ex sed!</p>
+                            </li>
+                            <li>
+                                <h6>Member name</h6>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis esse ratione id doloribus est enim, sunt ipsam, laboriosam ex sed!</p>
+                            </li>
+                            <li class="loop">
+                                <div class="loopback" style="height: 512px; top: 243px;"></div>
+                                <div class="loopback" style="height: 512px; top: 243px;"></div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <a href="#" id="feedback" class="anchor"></a>
+                <section class="feedback">
+                    <div class="feedback-content">
+                        <img src="@routes.Assets.at("images/index/feedback.png")" alt="">
+                        <span>Drop us a line</span>
+                        <h4>Contact us</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti mollitia molestiae sit, labore culpa consequuntur.</p>
+                        <form action="#">
+                            <span>
+                                <input type="text" name="name" required id="name">
+                                <label for="name">
+                                    <span>Name</span>
+                                </label>
+                            </span>
+                            <span>
+                                <input type="email" name="email" required id="email">
+                                <label for="email">
+                                    <span>E-mail</span>
+                                </label>
+                            </span>
+                            <span>
+                                <textarea name="message" required id="message" rows="1"></textarea>
+                                <label for="message">
+                                    <span>Message</span>
+                                </label>
+                            </span>
+                            <input type="submit" value="submit">
+                        </form>
+                    </div>
+                </section>
             </div>
-        </body>
-    </HTML>
+            <footer>
+                    &copy;2015 InstaPlay, Inc. All rights reserved.
+            </footer>
+        </div>
+        <script>
+            (function() {
+                if (!String.prototype.trim) {
+                    (function() {
+                        var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+                        String.prototype.trim = function() {
+                            return this.replace(rtrim, '');
+                        };
+                    })();
+                }
+
+                [].slice.call( document.querySelectorAll( '.feedback-content form input[type="text"], .feedback-content form input[type="email"], .feedback-content form textarea' ) ).forEach( function( inputEl ) {
+                    if( inputEl.value.trim() !== '' ) {
+                        classie.add( inputEl.parentNode, 'input--filled' );
+                    }
+                    inputEl.addEventListener( 'focus', onInputFocus );
+                    inputEl.addEventListener( 'blur', onInputBlur );
+                } );
+
+                function onInputFocus( ev ) {
+                    classie.add( ev.target.parentNode, 'input--filled' );
+                }
+
+                function onInputBlur( ev ) {
+                    if( ev.target.value.trim() === '' ) {
+                        classie.remove( ev.target.parentNode, 'input--filled' );
+                    }
+                }
+            })();
+
+            var buttonMenu = document.querySelector('#menuButton');
+            var wrap = document.querySelector('.wrapper');
+            buttonMenu.onclick = function(e) {
+                e.preventDefault();
+                wrap.classList.toggle('opened');
+                return false;
+            }
+            jQuery('.header-top-content a:not(#menuButton)').click( function(){
+                var scroll_el = jQuery(this).attr('href');
+                jQuery('html, body').animate({ scrollTop: jQuery(scroll_el).offset().top }, 500);
+                return false;
+            });
+            var checkScroll = function() {
+                var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+                var header = document.querySelector('.header-top');
+                if((scrolled) > parseInt(document.querySelector('.header-top').offsetTop)) header.classList.add('fixedNav');
+                else header.classList.remove('fixedNav');
+            }
+            window.onscroll = function() {
+                checkScroll();
+            }
+            checkScroll();
+        </script>
+    </body>
+</HTML>

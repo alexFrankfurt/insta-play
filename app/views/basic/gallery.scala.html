@@ -5,6 +5,10 @@
     @for(feed <- mediaFeeds){
         <li>
             <img src="@feed.getImages.getThumbnail.getImageUrl" alt="@feed.getId"/>
+                @for(comment <- feed.getComments.getComments){
+                    <p>@comment.getCommentFrom.getUsername</p>
+                    <p>@comment.getText</p>
+                }
         </li>
     }
 </ul>

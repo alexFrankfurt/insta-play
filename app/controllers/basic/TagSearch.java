@@ -2,12 +2,10 @@ package controllers.basic;
 
 import constants.AppConstants;
 import controllers.OAuther;
-import models.Tag;
 import org.jinstagram.entity.tags.TagMediaFeed;
 import org.jinstagram.entity.users.feed.MediaFeed;
 import org.jinstagram.entity.users.feed.MediaFeedData;
 import org.jinstagram.exceptions.InstagramException;
-import play.libs.Scala;
 import play.mvc.Controller;
 import play.mvc.Result;
 import play.twirl.api.Html;
@@ -28,6 +26,9 @@ public class TagSearch extends Controller {
     AppConstants ac;
 
     public  Result searchPhotoByTag(String tagName) {
+        if (!search.auther()){
+            return ok(views.html.basic.error.render());
+        }
         List<Html> list = new ArrayList<>();
         list.add(ac.Navigation().render());
         try {

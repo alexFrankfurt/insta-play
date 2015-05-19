@@ -9,7 +9,7 @@ import twirlc._
 import scala.collection.JavaConversions.asScalaBuffer
 
 class Services @Inject() (oAuther: OAuther, ac: AppConstants) extends Controller{
-  import oAuther.instagram
+  import oAuther.{instagram, auther}
   import ac._
 
   var minId = 0
@@ -17,19 +17,41 @@ class Services @Inject() (oAuther: OAuther, ac: AppConstants) extends Controller
   val count = 10
 
   def gallery = Action {
+    if (!auther){
+      Ok(views.html.basic.error.render())
+    }
     val mediaFeed = instagram.getUserFeeds(null, null, 20).getData
-    Ok(CommonPage("Feed")(
+    Ok(CommonPage("Gallery")(
        styles = MainStyle(),
-       scripts = ScrollScript(),
-       contents = Content(Navigation(), GalleryPage("Your feed: ", mediaFeed))))
+       contents = GalleryPage(mediaFeed)))
+  }
+
+  def profile = Action {
+    if (!auther){
+      Ok(views.html.basic.error.render())
+    }
+    var userInfo = instagram.getCurrentUserInfo()
+    var userInfoData = userInfo.getData()
+
+    var mediaFeed = instagram.getRecentMediaFeed(userInfo.getData.getId)
+    var mediaFeeds = mediaFeed.getData()
+    Ok(CommonPage("Gallery")(
+      styles = MainStyle(),
+      contents = ProfilePage(userInfoData, mediaFeeds)))
   }
 
   def load = Action {
+    if (!auther){
+      Ok(views.html.basic.error.render())
+    }
     val mediaFeed = instagram.getUserFeeds((maxId += 100).toString, (minId += 100).toString, count)
     Ok(views.html.basic.additionalPhoto(asScalaBuffer(mediaFeed.getData)))
   }
 
   def tagSearch = Action {
+    if (!auther){
+      Ok(views.html.basic.error.render())
+    }
     Ok(CommonPage("Find photos!")(
        styles = MainStyle(),
        scripts = TagSearchScript(),
@@ -37,6 +59,9 @@ class Services @Inject() (oAuther: OAuther, ac: AppConstants) extends Controller
   }
 
   def tagSearchSpecific(tag: String) = Action {
+    if (!auther){
+      Ok(views.html.basic.error.render())
+    }
     val data = instagram.getRecentMediaTags(tag).getData
     Ok(AdditionalPhoto(data))
   }
