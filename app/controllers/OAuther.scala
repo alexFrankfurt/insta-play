@@ -39,8 +39,8 @@ class OAuther @Inject() (consts: AppConstants) extends Controller {
   }
 
   def logout = Action {
-    instagram = null;
-    auther = false;
+    instagram = null
+    auther = false
     Redirect("/")
   }
 

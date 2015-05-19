@@ -3219,6 +3219,7 @@ return z.charCodeAt(0)==0?z:z}},
 wv:{
 "^":"a;"}}],["","",,W,{
 "^":"",
+wl:function(){return document},
 qc:function(a){var z
 if(a==null)return
 if("postMessage" in a){z=W.P1(a)
@@ -3227,7 +3228,6 @@ return}else return a},
 VF:function(a){var z=$.X3
 if(z===C.NU)return a
 return z.oj(a,!0)},
-hI:function(a){return document.querySelector(a)},
 qE:{
 "^":"cv;",
 $isqE:1,
@@ -4100,9 +4100,7 @@ z=J.U6(a)
 if(J.mG(z.gv(a),1))P.P("Message received from isolate: "+H.d(a))
 else{y=z.p(a,1)
 P.P("Got important data: ")
-z=$.e8()
-J.IR(z,"beforeend",y)
-$.MB().textContent="Media count: "+C.jn.X(z.childNodes.length)
+J.IR($.e8(),"beforeend",y)
 P.P(y)
 J.N(this.a,["loaded",new H.JM(this.Q.Q.Q,init.globalState.c.Q)])}}},
 K2:{
@@ -4372,7 +4370,7 @@ I.$lazy(x,w,v)}})(["Kb","Rs",function(){return H.Td()},"rS","p6",function(){retu
 try{null.$method$($argumentsExpr$)}catch(z){return z.message}}())},"qi","rx",function(){return H.cM(H.S7(void 0))},"rZ","Y9",function(){return H.cM(function(){var $argumentsExpr$='$arguments$'
 try{(void 0).$method$($argumentsExpr$)}catch(z){return z.message}}())},"BX","zO",function(){return H.cM(H.Mj(null))},"tt","Bi",function(){return H.cM(function(){try{null.$method$}catch(z){return z.message}}())},"dt","eA",function(){return H.cM(H.Mj(void 0))},"A7","ko",function(){return H.cM(function(){try{(void 0).$method$}catch(z){return z.message}}())},"lI","ej",function(){return P.xg()},"bq","mk",function(){var z=H.J(new P.vs(0,P.BE(),null),[null])
 z.Mx(null,null)
-return z},"nM","Ex",function(){return[]},"zX","AM",function(){return P.tM(["A","ABBR","ACRONYM","ADDRESS","AREA","ARTICLE","ASIDE","AUDIO","B","BDI","BDO","BIG","BLOCKQUOTE","BR","BUTTON","CANVAS","CAPTION","CENTER","CITE","CODE","COL","COLGROUP","COMMAND","DATA","DATALIST","DD","DEL","DETAILS","DFN","DIR","DIV","DL","DT","EM","FIELDSET","FIGCAPTION","FIGURE","FONT","FOOTER","FORM","H1","H2","H3","H4","H5","H6","HEADER","HGROUP","HR","I","IFRAME","IMG","INPUT","INS","KBD","LABEL","LEGEND","LI","MAP","MARK","MENU","METER","NAV","NOBR","OL","OPTGROUP","OPTION","OUTPUT","P","PRE","PROGRESS","Q","S","SAMP","SECTION","SELECT","SMALL","SOURCE","SPAN","STRIKE","STRONG","SUB","SUMMARY","SUP","TABLE","TBODY","TD","TEXTAREA","TFOOT","TH","THEAD","TIME","TR","TRACK","TT","U","UL","VAR","VIDEO","WBR"],null)},"or","NJ",function(){return P.A(null,null)},"Dn","MB",function(){return W.hI("#mediaCount")},"Jd","e8",function(){return W.hI("#photos")}])
+return z},"nM","Ex",function(){return[]},"zX","AM",function(){return P.tM(["A","ABBR","ACRONYM","ADDRESS","AREA","ARTICLE","ASIDE","AUDIO","B","BDI","BDO","BIG","BLOCKQUOTE","BR","BUTTON","CANVAS","CAPTION","CENTER","CITE","CODE","COL","COLGROUP","COMMAND","DATA","DATALIST","DD","DEL","DETAILS","DFN","DIR","DIV","DL","DT","EM","FIELDSET","FIGCAPTION","FIGURE","FONT","FOOTER","FORM","H1","H2","H3","H4","H5","H6","HEADER","HGROUP","HR","I","IFRAME","IMG","INPUT","INS","KBD","LABEL","LEGEND","LI","MAP","MARK","MENU","METER","NAV","NOBR","OL","OPTGROUP","OPTION","OUTPUT","P","PRE","PROGRESS","Q","S","SAMP","SECTION","SELECT","SMALL","SOURCE","SPAN","STRIKE","STRONG","SUB","SUMMARY","SUP","TABLE","TBODY","TD","TEXTAREA","TFOOT","TH","THEAD","TIME","TR","TRACK","TT","U","UL","VAR","VIDEO","WBR"],null)},"or","NJ",function(){return P.A(null,null)},"Jd","e8",function(){return W.wl().querySelector(".feed")}])
 
 init.metadata=[,];init.types=[{func:""},{func:"",void:true},{func:"",args:[,]},{func:"",args:[P.I]},{func:"",args:[,P.I]},{func:"",args:[{func:"",void:true}]},{func:"",void:true,args:[,],opt:[P.Gz]},{func:"",args:[,],opt:[,]},{func:"",ret:P.a2},{func:"",args:[,P.Gz]},{func:"",void:true,args:[,P.Gz]},{func:"",args:[,,]},{func:"",args:[P.wv,,]},{func:"",ret:P.I,args:[P.KN]},{func:"",void:true,args:[W.KV,W.KV]},{func:"",args:[W.kQ]},{func:"",args:[P.pW]},{func:"",args:[W.ea]},{func:"",void:true,args:[{func:"",void:true}]},{func:"",void:true,args:[,]},{func:"",ret:P.a2,args:[,,]},{func:"",ret:P.KN,args:[,]},{func:"",ret:P.a2,args:[P.a,P.a]},{func:"",ret:P.KN,args:[P.a]},{func:"",ret:P.a2,args:[W.cv,P.I,P.I,W.JQ]},{func:"",void:true,args:[P.pW]},];$=null
 I = I.$finishIsolateConstructor(I)

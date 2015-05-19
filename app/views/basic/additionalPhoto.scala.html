@@ -1,17 +1,59 @@
-@(photos: Seq[org.jinstagram.entity.users.feed.MediaFeedData])
+@(mediaFeeds: Seq[org.jinstagram.entity.users.feed.MediaFeedData])
 
-@for(photo <- photos){
-    <li>
-        <p>
-            <a href="@photo.getUser.getWebsiteUrl">
-                <img src="@photo.getUser.getProfilePictureUrl"/>
-                @photo.getUser.getUserName
+@for(item <- mediaFeeds){
+    <li class="item">
+        <figure>
+            <img src="@item.getImages.getStandardResolution.getImageUrl" width="480px" height="480px" alt="">
+            <figcaption>
+                <p class="label">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, dicta! <a href="#" class="username">&#64;@item.getUser.getUserName</a>
+                    @for(tag <- item.getTags){
+                        <a class="tag" href="#">&#35;@tag</a>
+                    }
+                    <time></time>
+                    <a href="#" class="place">somewhere</a>
+            </figcaption>
+        </figure>
+        <div class="item-desc">
+            <a href="#" class="user-info clearfix">
+                <img src="@item.getUser.getProfilePictureUrl" alt="">
+                <div>
+                    <p>@item.getUser.getFullName</p>
+                    <p>@item.getUser.getUserName</p>
+                </div>
             </a>
-        </p>
-        <img src="@photo.getImages.getThumbnail.getImageUrl" alt="@photo.getId"/>
-        @for(comment <- photo.getComments.getComments){
-            <p>@comment.getCommentFrom.getUsername</p>
-            <p>@comment.getText</p>
-        }
+            <div class="like-info">
+                <a href="#" class="like"></a>
+                <p class="like count">@item.getLikes.getCount<span> Like</span></p>
+                <ul>
+                @for(user <- item.getLikes.getLikesUserList) {
+                    <li><a href="#">&#64;@user.getUserName</a>,</li>
+                }
+                </ul>
+            </div>
+            <div class="comment-info">
+                <a href="#">view all</a>
+                <p><span>@item.getComments.getCount</span> Comments</p>
+                <ul>
+
+                @for(comment <- item.getComments.getComments){
+                    <li class="clearfix">
+                        <img src="@comment.getCommentFrom.getProfilePicture" alt="">
+                        <a href="#">@comment.getCommentFrom.getUsername</a>
+                        <time>@comment.getCreatedTime</time>
+                        <p>@comment.getText</p>
+                    </li>
+                }
+                </ul>
+                <form action="#">
+                    <span>
+                        <textarea name="message" required id="message" rows="2"></textarea>
+                        <label for="message">
+                            <span>Write your comment here</span>
+                        </label>
+                    </span>
+                    <input type="submit" value="submit">
+                </form>
+            </div>
+        </div>
     </li>
 }

@@ -23,6 +23,7 @@ class Services @Inject() (oAuther: OAuther, ac: AppConstants) extends Controller
     val mediaFeed = instagram.getUserFeeds(null, null, 20).getData
     Ok(CommonPage("Gallery")(
        styles = MainStyle(),
+       scripts = ScrollScript(),
        contents = GalleryPage(mediaFeed)))
   }
 
