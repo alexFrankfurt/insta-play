@@ -8,7 +8,7 @@ final LOADED = "loaded";
 final photosUl = querySelector(".feed");
 
 appendPhoto(SendPort port, SendPort mainPort) => (ProgressEvent e) {
-//  print("New photos loaded!");
+  print("New photos loaded!");
   var photos = e.target.responseText;
   port.send(["", mainPort, photos]);
 };
@@ -19,7 +19,7 @@ void scrollStatus(SendPort replyTo) {
   HttpRequest photoRequest = new HttpRequest();
   replyTo.send(port.sendPort);
   port.listen((msg) {
-//    print("Isolate got message $msg");
+    print("Isolate got message $msg");
     var data = msg[0];
     SendPort replyTo = msg[1];
     if (msg.length == 3) {
@@ -30,10 +30,10 @@ void scrollStatus(SendPort replyTo) {
         replyTo.send(["Yes, I got your message :)"]);
         replyTo.send([data]);
       } else if (data == LOAD_MORE) {
-//        print("Try to load more");
+        print("Try to load more");
         if (state == false) {
           state = true;
-//          print("border!");
+          print("border!");
           photoRequest.open("GET", "/loadphotos");
           photoRequest.onLoadEnd.listen(appendPhoto(port.sendPort, replyTo));
           photoRequest.send();
@@ -55,12 +55,12 @@ void main() {
     port.send(["START", reply.sendPort]);
     reply.listen((msg) {
       if (msg.length == 1)
-//        print("Message received from isolate: $msg");
+        print("Message received from isolate: $msg");
       else {
         var data = msg[1];
-//        print("Got important data: ");
+        print("Got important data: ");
         photosUl.appendHtml(data);
-//        print(data);
+        print(data);
         port.send([LOADED, reply.sendPort]);
       }
     });
